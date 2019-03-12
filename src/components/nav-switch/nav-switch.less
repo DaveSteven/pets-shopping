@@ -1,0 +1,28 @@
+.nav-switch {
+  display: inline-block;
+  height: 12px;
+  cursor: pointer;
+
+  .line {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: #38373c;
+    transition: width .2s ease-in-out;
+
+    +.line {
+      margin-top: 3px;
+    }
+  }
+
+  &:hover {
+    .line {
+      &:nth-child(2) {
+        width: 14px;
+      }
+      &:nth-child(3) {
+        width: 10px;
+      }
+    }
+  }
+}
