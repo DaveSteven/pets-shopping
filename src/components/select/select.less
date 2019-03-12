@@ -1,0 +1,28 @@
+.select {
+  &-wrapper {
+    position: relative;
+  }
+
+  &-selection {
+    padding: 0 10px;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ebebeb;
+    cursor: pointer;
+  }
+
+  &-selected-value {
+    margin-right: 10px;
+  }
+
+  &-drop {
+    position: absolute;
+    left: 0;
+    width: 100%;
+
+    .dropdown-list {
+      background-color: #fff;
+    }
+  }
+}
