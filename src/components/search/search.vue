@@ -1,8 +1,12 @@
 <template>
   <div class="search-wrapper">
-    <Select v-model="type">
+    <Select v-model="type" style="width: 80px">
       <Option v-for="item in options" :value="item.value" :label="item.label" :key="item.value"></Option>
     </Select>
+    <div class="search-box" style="width: 510px">
+      <input class="search-input" type="text">
+      <Icon type="search" :size="24" color="#3b3b3d"></Icon>
+    </div>
   </div>
 </template>
 <script>

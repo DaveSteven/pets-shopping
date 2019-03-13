@@ -14,7 +14,7 @@ export default {
     },
     color: {
       type: String,
-      default: '#363636'
+      default: ''
     }
   },
   computed: {
@@ -24,7 +24,7 @@ export default {
     iconStyle () {
       return {
         fontSize: `${this.size}px`,
-        color: `${this.color}`
+        color: this.color ? this.color : ''
       }
     }
   }

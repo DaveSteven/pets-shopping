@@ -4,7 +4,9 @@
       <header>
         <NavSwitch></NavSwitch>
         <Logo></Logo>
-        <Search></Search>
+        <Search style="margin-right: 50px"></Search>
+        <Cart></Cart>
+        <UserPanel></UserPanel>
       </header>
     </div>
   </div>
@@ -13,12 +15,16 @@
 import NavSwitch from '_c/nav-switch'
 import Logo from '_c/logo'
 import Search from '_c/search'
+import Cart from '_c/cart'
+import UserPanel from '_c/user-panel'
 
 export default {
   components: {
     NavSwitch,
     Logo,
-    Search
+    Search,
+    Cart,
+    UserPanel
   }
 }
 </script>

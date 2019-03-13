@@ -6,14 +6,13 @@
   >
     <div
       class="select-selection"
-      :class="selectionCls"
       @click="toggleMenu"
     >
       <span class="select-selected-value">{{ displayValue }}</span>
       <Icon type="down-arrow" :size="12" color="#bababa"></Icon>
     </div>
-    <transition name="transition-drop">
-      <div class="select-drop" v-show="visible" ref="dropdown">
+    <transition name="slide-fade" :appear="true">
+      <div v-show="visible" class="select-drop" ref="dropdown" v-transfer-dom>
         <ul class="dropdown-list"><slot></slot></ul>
       </div>
     </transition>
@@ -21,12 +20,13 @@
 </template>
 <script>
 import * as vClickOutside from 'v-click-outside-x'
+import TransferDom from '@/directives/transfer-dom'
 
 const optionRegexp = /^i-option$|^Option$/
 
 export default {
   name: 'pSelect',
-  directives: { clickOutside: vClickOutside.directive },
+  directives: { clickOutside: vClickOutside.directive, TransferDom },
   props: {
     value: {
       type: [String, Number],
@@ -37,17 +37,9 @@ export default {
       default: '请选择'
     }
   },
-  computed: {
-    selectionCls () {
-      return {
-        'selection-focused': this.isFocused
-      }
-    }
-  },
   data () {
     return {
       visible: false,
-      isFocused: false,
       slotOptions: [],
       displayValue: this.placeholder
     }
@@ -69,7 +61,6 @@ export default {
       this.visible = !this.visible
     },
     hideMenu () {
-      this.isFocused = false
       this.visible = false
     },
     onClickOutside (event) {
@@ -80,7 +71,6 @@ export default {
         }
         event.preventDefault()
         this.hideMenu()
-        this.isFocused = true
       }
     },
     onOptionClick (data) {

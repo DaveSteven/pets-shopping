@@ -1,0 +1,26 @@
+.blog {
+  &-item {
+    display: flex;
+
+    .cover {
+      flex: 0 0 230px;
+      height: 160px;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    &.small {
+      .cover {
+        flex: 0 0 80px;
+        height: 80px;
+      }
+
+      .content {
+        .text {
+          display: none;
+        }
+      }
+    }
+  }
+}

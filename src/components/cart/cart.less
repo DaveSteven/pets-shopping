@@ -1,0 +1,40 @@
+@import "~common/less/variable";
+
+.cart {
+  &-wrapper {
+    width: 98px;
+    height: 28px;
+    border: 1px solid #ebebeb;
+    line-height: 28px;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      background-color: @primary-color;
+      border-color: @primary-color;
+
+      .cart-container {
+        color: #fff;
+
+        .iconfont {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &-container {
+    letter-spacing: 3px;
+    text-align: center;
+    color: @text-color;
+    transition: all .3s ease-in-out;
+
+    .iconfont {
+      position: relative;
+      left: 8px;
+      color: #b6b6b6;
+    }
+  }
+}
