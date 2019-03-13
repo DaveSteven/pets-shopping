@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "babel-plugin-import": "^1.11.0",
+    "better-scroll": "^1.15.0",
     "good-storage": "^1.1.0",
     "iview": "^3.3.0",
     "less": "^3.9.0",

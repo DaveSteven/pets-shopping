@@ -1,5 +1,5 @@
 <template>
-  <Row :gutter="5">
+  <Row :gutter="5" class="blog">
     <Col :span="span" v-for="(item, index) in blogList" :key="index">
       <Card :bordered="false">
         <div class="blog-item" :class="itemClass">
@@ -8,7 +8,7 @@
             <span class="datetime">{{ item.time }}</span>
             <h3 class="title">{{ item.title }}</h3>
             <p class="info">
-              <span>发自{{ item.user_name }}</span>
+              <span class="mr15">作者：{{ item.user_name }}</span>
               <span>评论数：{{ item.comments }}</span>
             </p>
             <p class="text">{{ item.content }}</p>

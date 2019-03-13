@@ -32,6 +32,7 @@ module.exports = {
     config.resolve.alias
       .set('@', resolve('src')) // key,value自行定义，比如.set('@@', resolve('src/components'))
       .set('_c', resolve('src/components'))
+      .set('_b', resolve('src/base'))
       .set('common', resolve('src/common'))
   },
   // 打包时不生成.map文件

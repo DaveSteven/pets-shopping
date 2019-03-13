@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import Icon from './components/icon'
+import Icon from './base/icon'
 import { Row, Col, Card } from 'iview'
 
 import 'iview/dist/styles/iview.css'

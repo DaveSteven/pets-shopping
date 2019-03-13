@@ -10,8 +10,8 @@
   </div>
 </template>
 <script>
-import Select from '_c/select'
-import Option from '_c/select/option'
+import Select from '_b/select'
+import Option from '_b/select/option'
 
 export default {
   data () {

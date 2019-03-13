@@ -1,13 +1,49 @@
+@import "~common/less/variable";
+
 .blog {
+  .ivu-card {
+    border: 1px solid #fff;
+    &:hover {
+      border-color: @primary-color;
+    }
+  }
+
   &-item {
     display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
 
     .cover {
+      margin-right: 10px;
       flex: 0 0 230px;
       height: 160px;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center center;
+      border-radius: 3px;
+    }
+
+    .datetime {
+      font-size: @font-size-small-xs;
+      color: @text-gray-color;
+    }
+
+    .title {
+      margin: 10px 0;
+      height: 36px;
+      font-size: @font-size-small-s;
+      line-height: 1.3;
+      color: @text-color;
+      overflow: hidden;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .info {
+      font-size: @font-size-small-xs;
     }
 
     &.small {
