@@ -2,7 +2,80 @@
 
 .footer {
   &-head {
+    padding: 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 95px;
     background-color: #562310;
+
+    .iconfont {
+      color: #906650;
+    }
+
+    .circle {
+      display: inline-block;
+      width: 38px;
+      height: 38px;
+      line-height: 38px;
+      border-radius: 50%;
+      background-color: #481c13;
+      text-align: center;
+    }
+
+    .share-icon {
+      .iconfont {
+        font-size: 22px;
+      }
+    }
+
+    .pay-icon {
+      .iconfont {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &-body {
+    padding: 20px 80px;
+    background-color: #481c13;
+    color: #906555;
+
+    .shortcut {
+      display: flex;
+
+      .item {
+        flex: 1;
+        line-height: 1.5;
+        font-size: @font-size-small-xs;
+
+        .title {
+          margin-bottom: 10px;
+          font-size: @font-size-small-s;
+          color: #fff;
+        }
+
+        .footer-input {
+          padding: 0 5px;
+          width: 190px;
+          height: 30px;
+          line-height: 30px;
+          background: transparent;
+          border: 1px solid #906555;
+          border-radius: @border-radius-value;
+          color: #906555;
+        }
+
+        a {
+          color: #d2a456;
+        }
+      }
+    }
+
+    .copy-right {
+      margin-top: 30px;
+      padding: 30px 0;
+      border-top: 1px solid #5d3229;
+    }
   }
 }
