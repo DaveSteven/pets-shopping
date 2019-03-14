@@ -1,7 +1,9 @@
+@import "~common/less/variable";
+
 .select-item {
   padding: 10px;
   cursor: pointer;
-  transition: all .3s ease-in-out;
+  transition: all @animation-time @animation-timing-function;
 
   &:hover {
     background-color: #f5f5f5;

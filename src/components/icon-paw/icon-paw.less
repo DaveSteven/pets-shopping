@@ -1,0 +1,25 @@
+@import "~common/less/variable";
+
+.paw-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 34px;
+
+  .icon-paw {
+    position: absolute;
+    color: @primary-color;
+
+    &:first-child {
+      left: 0;
+      top: 0;
+      transform: rotate(-10deg);
+    }
+
+    &:nth-child(2) {
+      right: 0;
+      bottom: 0;
+      transform: rotate(10deg);
+    }
+  }
+}

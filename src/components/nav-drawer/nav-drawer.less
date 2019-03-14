@@ -1,3 +1,5 @@
+@import "~common/less/variable";
+
 .nav-switch {
   display: inline-block;
   height: 12px;
@@ -8,7 +10,7 @@
     width: 18px;
     height: 2px;
     background: #38373c;
-    transition: width .2s ease-in-out;
+    transition: width @animation-time @animation-timing-function;
 
     +.line {
       margin-top: 3px;

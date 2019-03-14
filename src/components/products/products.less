@@ -1,0 +1,34 @@
+@import "~common/less/variable";
+
+.product {
+  &-list {
+    .ivu-card {
+      border: 1px solid #fff;
+      &:hover {
+        border-color: @primary-color;
+      }
+    }
+  }
+
+  &-item {
+    margin-bottom: 5px;
+  }
+
+  &-container {
+    cursor: pointer;
+
+    img {
+      width: 100%;
+    }
+    text-align: center;
+
+    .name {
+      color: @text-color;
+    }
+
+    .price {
+      color: @text-color;
+      font-weight: 700;
+    }
+  }
+}

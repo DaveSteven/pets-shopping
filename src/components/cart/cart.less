@@ -6,10 +6,10 @@
     height: 28px;
     border: 1px solid #ebebeb;
     line-height: 28px;
-    border-radius: 3px;
+    border-radius: @border-radius-value;
     cursor: pointer;
     background-color: #fff;
-    transition: all .3s ease-in-out;
+    transition: all @animation-time @animation-timing-function;
 
     &:hover {
       background-color: @primary-color;
@@ -29,7 +29,7 @@
     letter-spacing: 3px;
     text-align: center;
     color: @text-color;
-    transition: all .3s ease-in-out;
+    transition: all @animation-time @animation-timing-function;
 
     .iconfont {
       position: relative;

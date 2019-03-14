@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "small-pure";
+  src: url('./small-pure.ttf?t=1552363699735') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+}
+
+.small-pure-font {
+  font-family: "small-pure" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

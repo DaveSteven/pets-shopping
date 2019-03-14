@@ -20,8 +20,12 @@
 </template>
 <script>
 import { oneOf } from 'common/js/utils'
+import listMixins from '@/mixins/list'
 
 export default {
+  mixins: [
+    listMixins
+  ],
   props: {
     data: {
       type: Array,
@@ -33,7 +37,7 @@ export default {
       type: Number,
       default: 1
     },
-    showNumber: {
+    lines: {
       type: Number,
       default: 0
     },
@@ -55,22 +59,13 @@ export default {
     }
   },
   watch: {
-    data () {
-      this.sliceData()
+    data (val) {
+      this.blogList = this.sliceData(val)
     }
   },
   data () {
     return {
       blogList: []
-    }
-  },
-  methods: {
-    sliceData () {
-      if (this.showNumber === 0) {
-        this.blogList = this.data
-      } else {
-        this.blogList = this.data.slice(0, this.showNumber)
-      }
     }
   }
 }

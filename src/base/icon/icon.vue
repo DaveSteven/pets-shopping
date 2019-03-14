@@ -9,8 +9,8 @@ export default {
       required: true
     },
     size: {
-      type: Number,
-      default: 16
+      type: [Number, String],
+      default: ''
     },
     color: {
       type: String,
@@ -23,11 +23,11 @@ export default {
     },
     iconStyle () {
       return {
-        fontSize: `${this.size}px`,
+        fontSize: this.size ? `${this.size}px` : '',
         color: this.color ? this.color : ''
       }
     }
   }
 }
 </script>
-<style src="common/fonts/iconfont.css" scoped></style>
+<style src="common/fonts/iconfont/iconfont.css" scoped></style>

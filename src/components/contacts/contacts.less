@@ -1,0 +1,40 @@
+@import "~common/less/variable";
+
+.contacts {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+  border-radius: @border-radius-value;
+  background-color: @primary-color;
+
+  .content {
+    margin-top: -20px;
+    display: flex;
+
+    .item {
+      flex: 1;
+      margin: 0 60px;
+      text-align: center;
+      color: #fff;
+      line-height: 1.5;
+
+      .circle {
+        margin-bottom: 10px;
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        background: @dark-primary-color;
+        border-radius: 50%;
+
+        .iconfont {
+          font-size: 60px;
+        }
+      }
+
+      .text {
+        font-size: @font-size-small-s;
+      }
+    }
+  }
+}

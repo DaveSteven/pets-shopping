@@ -1,11 +1,57 @@
 @import "~common/less/variable";
 
 .title-bar {
-  padding: 0 10px 0 40px;
+  position: relative;
+  padding: 0 10px 0 50px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 60px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: @border-radius-value;
+
+  .icon {
+    position: absolute;
+    left: -10px;
+  }
+
+  .title {
+    font-size: @font-size-large;
+    color: @text-color;
+  }
+
+  .opt-box {
+    .opt-btn {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid @gray-color;
+      cursor: pointer;
+
+      .iconfont {
+        font-weight: 700;
+        color: @text-gray-color;
+        transition: color @animation-time @animation-timing-function;
+      }
+
+      &:hover {
+        .iconfont {
+          color: @text-color;
+        }
+      }
+
+      &.prev {
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
+        border-right: 0;
+      }
+
+      &.next {
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+    }
+  }
 }

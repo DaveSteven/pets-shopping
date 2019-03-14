@@ -14,4 +14,4 @@ export default {
   }
 }
 </script>
-<style src="./nav-switch.less" lang="less" scoped></style>
+<style src="./nav-drawer.less" lang="less" scoped></style>
