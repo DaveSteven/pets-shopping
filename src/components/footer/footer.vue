@@ -1,5 +1,6 @@
 <template>
   <div class="footer-wrapper">
+    <div class="pets-img"><img :src="petsImg" alt=""></div>
     <div class="container">
       <footer>
         <div class="footer-head">
@@ -69,5 +70,15 @@
     </div>
   </div>
 </template>
-<script></script>
+<script>
+import petsImg from 'common/image/pets-img.png'
+
+export default {
+  data () {
+    return {
+      petsImg
+    }
+  }
+}
+</script>
 <style src="./footer.less" lang="less" scoped></style>
