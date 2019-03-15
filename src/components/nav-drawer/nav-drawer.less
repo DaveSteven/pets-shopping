@@ -1,23 +1,29 @@
 @import "~common/less/variable";
 
-.nav-switch {
+.nav-drawer-btn {
   display: inline-block;
   height: 12px;
   cursor: pointer;
+
+  &:hover {
+    .line {
+      background: @primary-color;
+    }
+  }
 
   .line {
     display: block;
     width: 18px;
     height: 2px;
     background: #38373c;
-    transition: width @animation-time @animation-timing-function;
+    transition: all @animation-time @animation-timing-function;
 
     +.line {
       margin-top: 3px;
     }
   }
 
-  &:hover {
+  &.open {
     .line {
       &:nth-child(2) {
         width: 14px;

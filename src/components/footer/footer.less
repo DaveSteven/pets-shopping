@@ -4,7 +4,7 @@
   &-wrapper {
     .pets-img {
       margin-top: -100px;
-      margin-bottom: -280px;
+      margin-bottom: -275px;
       text-align: center;
       position: relative;
       z-index: -1;
@@ -55,7 +55,7 @@
 
       .item {
         flex: 1;
-        line-height: 1.5;
+        line-height: 1.8;
         font-size: @font-size-small-xs;
 
         .title {
@@ -73,10 +73,20 @@
           border: 1px solid #906555;
           border-radius: @border-radius-value;
           color: #906555;
+          transition: all @animation-time @animation-timing-function;
+
+          &:hover,
+          &:focus {
+            border-color: #fccb65;
+          }
+
+          &::placeholder {
+            color: #906555;
+          }
         }
 
         a {
-          color: #d2a456;
+          color: #fccb65;
         }
       }
     }

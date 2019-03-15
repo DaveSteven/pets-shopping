@@ -58,7 +58,7 @@
             <div class="item">
               <h5 class="title">订阅</h5>
               <p>订阅我们的网站，我们会每周发布动态给您。</p>
-              <div class="mt10 mb15"><input class="footer-input" type="text"></div>
+              <div class="mt10 mb15"><input class="footer-input" placeholder="example@email.com" type="text"></div>
               <p><a href="javascript:;">提交<Icon type="right-arrow" :size="12"></Icon></a></p>
             </div>
           </div>
@@ -71,7 +71,7 @@
   </div>
 </template>
 <script>
-import petsImg from 'common/image/pets-img.png'
+import petsImg from './pets-img.png'
 
 export default {
   data () {

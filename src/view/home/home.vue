@@ -1,11 +1,9 @@
 <template>
-  <div>
-    <div class="container">
-      <Blogs :columns="3" :data="blogData" :lines="1" size="small" class="mb5"></Blogs>
-      <HomeSlider :data="sliderData" class="mb30"></HomeSlider>
-      <Products title="今日萌宠" :columns="4" :lines="2" :data="petsData" class="mb30"></Products>
-      <Products title="萌宠用品" :columns="4" :lines="2" :data="suppliesData"></Products>
-    </div>
+  <div class="container">
+    <Blogs :columns="3" :data="blogData" :lines="1" size="small" class="mb5"></Blogs>
+    <HomeSlider :data="sliderData" class="mb30"></HomeSlider>
+    <Products title="今日萌宠" :columns="4" :lines="2" :data="petsData" class="mb30"></Products>
+    <Products title="萌宠用品" :columns="4" :lines="2" :data="suppliesData"></Products>
   </div>
 </template>
 <script>
