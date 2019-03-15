@@ -2,8 +2,8 @@
   <div class="header-wrapper">
     <div class="container">
       <header>
-        <NavDrawer></NavDrawer>
-        <Logo></Logo>
+        <NavDrawer class="mr10"></NavDrawer>
+        <Logo class="mr30"></Logo>
         <Search class="mr50"></Search>
         <Cart></Cart>
         <UserPanel></UserPanel>

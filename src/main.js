@@ -3,14 +3,16 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import Icon from './base/icon'
-import { Row, Col, Card } from 'iview'
+import { Row, Col, Card, Button } from 'iview'
 
+import './common/less/iview.less'
 import './common/less/index.less'
 
 Vue.component('Icon', Icon)
 Vue.component('Row', Row)
 Vue.component('Card', Card)
 Vue.component('Col', Col)
+Vue.component('Button', Button)
 
 Vue.config.productionTip = false
 

@@ -1,3 +1,5 @@
+@import "~common/less/variable";
+
 .user-panel {
   position: absolute;
   right: 30px;
@@ -16,6 +18,39 @@
       .iconfont {
         color: #3d3c41;
       }
+    }
+  }
+
+  .dropdown {
+    .iconfont {
+      font-size: 14px;
+    }
+    .ivu-dropdown-item {
+      font-size: @font-size-small-s !important;
+    }
+  }
+}
+
+.login-body {
+  .modal-close-btn {
+    position: absolute;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: @primary-color;
+    border-radius: @border-radius-value;
+    border: 1px solid @dark-primary-color;
+    cursor: pointer;
+    transition: all @animation-time @animation-timing-function;
+
+    &:hover {
+      background-color: @dark-primary-color;
+    }
+
+    .iconfont {
+      color: #fff;
     }
   }
 }

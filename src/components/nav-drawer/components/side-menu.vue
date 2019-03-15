@@ -1,9 +1,10 @@
 <template>
-  <Menu theme="dark" width="100%" :active-name="activeName">
+  <Menu theme="dark" width="100%" :active-name="activeName" @on-select="select">
     <template v-for="(item, index) in menuList">
       <MenuItem v-if="!item.children" :name="item.name" :key="index">{{ item.meta.title }}</MenuItem>
       <Submenu v-if="item.children && item.children.length" :name="item.name" :key="index">
-        <MenuItem v-for="(sub, subIndex) in item.children" :key="subIndex" :name="sub.name">{{ sub.title }}</MenuItem>
+        <template slot="title">{{ item.meta.title }}</template>
+        <MenuItem v-for="(sub, subIndex) in item.children" :key="subIndex" :name="sub.name">{{ sub.meta.title }}</MenuItem>
       </Submenu>
     </template>
   </Menu>
@@ -30,9 +31,17 @@ export default {
       this.activeName = route.name
     }
   },
+  created () {
+    this.activeName = this.$route.name
+  },
   data () {
     return {
       activeName: ''
+    }
+  },
+  methods: {
+    select (name) {
+      this.$router.push({ name })
     }
   }
 }
