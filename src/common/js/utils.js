@@ -63,3 +63,40 @@ export function scrollTop (el, from = 0, to, duration = 500) {
   }
   scroll(from, to, step)
 }
+
+export const forEach = (arr, fn) => {
+  if (!arr.length || !fn) return
+  let i = -1
+  let len = arr.length
+  while (++i < len) {
+    let item = arr[i]
+    fn(item, i, arr)
+  }
+}
+
+/**
+ * @param {Array} list 通过路由列表得到菜单列表
+ * @returns {Array}
+ */
+export const getMenuByRouter = (list) => {
+  let res = []
+  forEach(list, item => {
+    if (!item.meta || (item.meta && !item.meta.hideInMenu)) {
+      let obj = {
+        icon: (item.meta && item.meta.icon) || '',
+        name: item.name,
+        meta: item.meta
+      }
+      if ((hasChild(item) || (item.meta && item.meta.showAlways))) {
+        obj.children = getMenuByRouter(item.children)
+      }
+      if (item.meta && item.meta.href) obj.href = item.meta.href
+      res.push(obj)
+    }
+  })
+  return res
+}
+
+export const hasChild = (item) => {
+  return item.children && item.children.length !== 0
+}

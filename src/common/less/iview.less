@@ -1,0 +1,42 @@
+@import '~iview/src/styles/index.less';
+
+@primary-color                : #4bb048;
+
+@menu-dark-title              : #37383c;
+@menu-dark-active-bg          : #333437;
+@menu-dark-subsidiary-color   : rgba(255,255,255,.7);
+@menu-dark-group-title-color  : rgba(255,255,255,.36);
+
+
+/* 修改组件样式 */
+.@{drawer-prefix-cls} {
+  &-header {
+    border: 0;
+  }
+}
+
+.@{menu-prefix-cls} {
+  &-vertical &-submenu-title {
+    padding: 20px 35px;
+  }
+
+  &-vertical &-item  {
+    padding: 18px 35px;
+  }
+
+  &-dark&-vertical &-item, &-dark&-vertical &-submenu-title{
+    &-active:not(.@{menu-prefix-cls}-submenu){
+      color: @primary-color;
+    }
+  }
+
+  &-dark&-vertical &-submenu &-item{
+    &:hover{
+      color: @primary-color;
+      background: transparent !important;
+    }
+    &-active,&-active:hover{
+      background: transparent !important;
+    }
+  }
+}
