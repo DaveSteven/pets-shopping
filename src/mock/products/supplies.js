@@ -11,9 +11,14 @@ const data = Mock.mock({
       '玩具',
       '药品'
     ],
-    'counts|1-100': 1,
-    'description|10-50': '商品描述'
+    'stock|1-100': 1,
+    'description|10-50': '商品描述',
+    'goods_type': '0'
   }]
+})
+
+data.data.forEach(item => {
+  item.id = `supplies_${item.id}`
 })
 
 export default data

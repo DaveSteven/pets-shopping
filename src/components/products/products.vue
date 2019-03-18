@@ -2,13 +2,13 @@
   <div class="products">
     <TitleBar class="mb5" :title="title" @on-click="onClick"></TitleBar>
     <Row :gutter="5" class="product-list">
-      <Col class="product-item" :span="span" v-for="item in productList" :key="item.id">
+      <Col class="product-item" :span="span" v-for="(item, index) in productList" :key="index">
       <Card :bordered="false">
         <div class="product-container">
           <div class="cover mb10"><img :src="item.img" alt=""></div>
           <div class="name mb5">{{ item.name }}</div>
           <div class="price">¥{{ item.price }}</div>
-          <ProductTools v-model="item.visible"></ProductTools>
+          <ProductTools :goods="item"></ProductTools>
         </div>
       </Card>
       </Col>

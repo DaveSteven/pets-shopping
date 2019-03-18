@@ -15,6 +15,7 @@
   }
 
   &-container {
+    position: relative;
     cursor: pointer;
 
     img {
@@ -29,6 +30,21 @@
     .price {
       color: @text-color;
       font-weight: 700;
+    }
+
+    .product-tools {
+      position: absolute;
+      left: 50%;
+      bottom: 80px;
+      transform: translateX(-50%);
+      transition: all @animation-time @animation-timing-function;
+      opacity: 0;
+    }
+
+    &:hover {
+      .product-tools {
+        opacity: 1;
+      }
     }
   }
 }
