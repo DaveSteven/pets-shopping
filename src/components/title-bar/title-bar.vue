@@ -4,7 +4,7 @@
     <h1 class="title">
       <span class="small-pure-font">{{title}}</span>
     </h1>
-    <div class="opt-box">
+    <div class="opt-box" v-show="showButton">
       <span class="opt-btn prev" @click="handleClick('prev')">
         <Icon type="left-arrow" :size="12"></Icon>
       </span>
@@ -25,6 +25,10 @@ export default {
     title: {
       type: String,
       default: 'Title'
+    },
+    showButton: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {

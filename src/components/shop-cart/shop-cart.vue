@@ -1,57 +1,41 @@
 <template>
-  <div class="cart-wrapper">
-    <Dropdown placement="bottom-end" trigger="click">
-      <div class="cart-btn">
-        <span><Icon type="cart" :size="14" />购物车</span>
-        <Icon type="down-arrow" :size="12" />
-      </div>
-      <DropdownMenu slot="list">
-        <div class="cart-container">
-          <template v-if="cartList.length">
-            <ul class="cart-list">
-              <li class="cart-item" v-for="(item, index) in cartList" :key="index">
-                <div class="img"><img :src="item.img"></div>
-                <div class="text">
-                  <h5 class="title">{{ item.name }}</h5>
-                  <div class="price">
-                    {{ item.count }} x <span class="text-primary f16">¥{{ item.price }}</span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-            <div class="text-right text-bold pr20 mb10 f14">总计：¥{{ totalPrice }}</div>
-            <Row type="flex" justify="space-between">
-              <Col><Button type="default">查看详情</Button></Col>
-              <Col><Button type="primary">结算</Button></Col>
-            </Row>
-          </template>
-          <div v-else class="text-primary text-bold">购物车是空的～</div>
+  <div class="shop-cart-wrapper">
+    <div class="shop-cart-title">
+      <div class="cell product">商品</div>
+      <div class="cell price">价格</div>
+      <div class="cell count">数量</div>
+      <div class="cell total">总计</div>
+      <div class="cell ops">操作</div>
+    </div>
+    <div class="shop-cart-list">
+      <div class="goods" v-for="(item, index) in cartList" :key="index">
+        <div class="cell product">
+          <div class="img"><img :src="item.img" alt=""></div>
+          <div class="name">{{ item.name }}</div>
         </div>
-      </DropdownMenu>
-    </Dropdown>
-    <div class="cart-num"></div>
+        <div class="cell price">{{ item.price }}</div>
+        <div class="cell count">{{ item.count }}</div>
+        <div class="cell total">{{ item.price * item.count }}</div>
+        <div class="cell ops">删除</div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import { Dropdown, DropdownMenu } from 'iview'
 import { mapGetters } from 'vuex'
 
 export default {
-  components: {
-    Dropdown,
-    DropdownMenu
-  },
   computed: {
-    ...mapGetters([
-      'cartList'
-    ]),
     totalPrice () {
       let total = 0
       this.cartList.forEach(goods => {
         total += goods.price * goods.count
       })
       return total
-    }
+    },
+    ...mapGetters([
+      'cartList'
+    ])
   }
 }
 </script>

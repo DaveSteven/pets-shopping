@@ -1,9 +1,3 @@
-const Home = (resolve) => {
-  import('@/view/home/home').then((module) => {
-    resolve(module)
-  })
-}
-
 export default [
   {
     path: '/',
@@ -11,7 +5,7 @@ export default [
     meta: {
       title: '主页'
     },
-    component: Home
+    component: () => import('@/view/home/home')
   },
   {
     path: '/pets',
@@ -65,5 +59,14 @@ export default [
         }
       }
     ]
+  },
+  {
+    path: '/cart',
+    name: 'ShopCart',
+    meta: {
+      title: '购物车',
+      hideInMenu: true
+    },
+    component: () => import('@/view/shop-cart/shop-cart')
   }
 ]

@@ -1,96 +1,56 @@
 @import "~common/less/variable";
 
-.cart {
+.shop-cart {
   &-wrapper {
-    width: 98px;
-    height: 28px;
-    border: 1px solid #ebebeb;
-    line-height: 28px;
-    border-radius: @border-radius-value;
-    cursor: pointer;
+    padding: 20px;
     background-color: #fff;
-    transition: all @animation-time @animation-timing-function;
+    border-radius: @border-radius-value;
     color: @text-color;
 
-    &:hover {
-      background-color: @primary-color;
-      border-color: @primary-color;
-
-      .cart-btn {
-        color: #fff;
-
-        .iconfont {
-          color: #fff;
-        }
+    .cell {
+      padding: 10px;
+      text-align: right;
+      &.product {
+        text-align: left;
+        flex: 1;
+      }
+      &.price {
+        width: 200px;
+      }
+      &.count {
+        width: 100px;
+      }
+      &.total {
+        width: 100px;
+      }
+      &.ops {
+        width: 80px;
       }
     }
   }
 
-  &-container {
-    padding: 10px;
-    width: 300px;
+  &-title,
+  &-list .goods{
+    display: flex;
+    align-items: center;
+  }
 
-    .cart-list {
-      .cart-item {
+  &-list {
+    .goods {
+      .img {
+        width: 120px;
+      }
+    }
+
+    .cell {
+      &.product {
         display: flex;
-        align-items: stretch;
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #dedede;
-
-        img {
-          width: 100%;
-          display: block;
-        }
-
+        align-items: center;
         .img {
-          margin-right: 20px;
-          width: 50px;
-        }
-
-        .text {
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          line-height: 1.2;
-
-          .title {
-            font-size: @font-size-small-s;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-
-          .price {
-            font-weight: 700;
-          }
+          margin-right: 10px;
+          width: 120px;
         }
       }
-    }
-  }
-
-  &-btn {
-    width: 98px;
-    text-align: center;
-    color: @text-color;
-    transition: all @animation-time @animation-timing-function;
-
-    .iconfont {
-      transition: all @animation-time @animation-timing-function;
-    }
-
-    .icon-down-arrow {
-      position: relative;
-      left: 8px;
-      color: #b6b6b6;
-    }
-
-    .icon-cart {
-      margin-right: 4px;
-      color: @text-color;
-      vertical-align: -1px;
     }
   }
 }
