@@ -8,6 +8,7 @@
           <div class="cover mb10"><img :src="item.img" alt=""></div>
           <div class="name mb5">{{ item.name }}</div>
           <div class="price">¥{{ item.price }}</div>
+          <ProductTools v-model="item.visible"></ProductTools>
         </div>
       </Card>
       </Col>
@@ -16,6 +17,7 @@
 </template>
 <script>
 import TitleBar from '_c/title-bar'
+import ProductTools from '_c/product-tools'
 import { oneOf } from 'common/js/utils'
 import listMixins from '@/mixins/list'
 
@@ -24,7 +26,8 @@ export default {
     listMixins
   ],
   components: {
-    TitleBar
+    TitleBar,
+    ProductTools
   },
   props: {
     data: {

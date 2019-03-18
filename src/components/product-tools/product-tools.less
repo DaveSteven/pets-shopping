@@ -1,0 +1,35 @@
+@import "~common/less/variable";
+
+.product-tools {
+  display: inline-block;
+
+  .tools-item {
+    display: inline-block;
+    background-color: #37383c;
+    padding: 5px 10px;
+
+    &:hover {
+      background-color: @primary-color;
+
+      .iconfont {
+        color: #fff;
+      }
+    }
+
+    &:first-child {
+      border-top-left-radius: @border-radius-value;
+      border-bottom-left-radius: @border-radius-value;
+    }
+
+    &:last-child {
+      border-top-right-radius: @border-radius-value;
+      border-bottom-right-radius: @border-radius-value;
+    }
+
+    .iconfont {
+      font-size: 22px;
+      color: #6d6d6d;
+      transition: color @animation-time cubic-bezier(0, 0, 0, 1);
+    }
+  }
+}

@@ -5,7 +5,7 @@
         <NavDrawer class="mr10"></NavDrawer>
         <Logo class="mr30"></Logo>
         <Search class="mr50"></Search>
-        <Cart></Cart>
+        <ShopCart></ShopCart>
         <UserPanel></UserPanel>
       </header>
     </div>
@@ -15,7 +15,7 @@
 import NavDrawer from '_c/nav-drawer'
 import Logo from '_c/logo'
 import Search from '_c/search'
-import Cart from '_c/cart'
+import ShopCart from '_c/shop-cart'
 import UserPanel from '_c/user-panel'
 
 export default {
@@ -23,7 +23,7 @@ export default {
     NavDrawer,
     Logo,
     Search,
-    Cart,
+    ShopCart,
     UserPanel
   }
 }

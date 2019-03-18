@@ -1,0 +1,14 @@
+.fade {
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    transition: all @animation-time ease;
+  }
+
+  &-leave-active {
+    transition: all @animation-time cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+}

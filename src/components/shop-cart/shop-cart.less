@@ -26,15 +26,25 @@
   }
 
   &-container {
-    letter-spacing: 3px;
+    width: 98px;
     text-align: center;
     color: @text-color;
     transition: all @animation-time @animation-timing-function;
 
     .iconfont {
+      transition: all @animation-time @animation-timing-function;
+    }
+
+    .icon-down-arrow {
       position: relative;
       left: 8px;
       color: #b6b6b6;
+    }
+
+    .icon-cart {
+      margin-right: 4px;
+      color: @text-color;
+      vertical-align: -1px;
     }
   }
 }
