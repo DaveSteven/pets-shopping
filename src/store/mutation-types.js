@@ -1,1 +1,5 @@
 export const SET_CART_LIST = 'SET_CART_LIST'
+
+export const ADD_GOOD_COUNT = 'ADD_GOOD_COUNT'
+
+export const DECREASE_GOOD_COUNT = 'DECREASE_GOOD_COUNT'

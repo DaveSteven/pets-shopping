@@ -13,7 +13,7 @@ import { mapMutations, mapGetters } from 'vuex'
 
 export default {
   props: {
-    goods: {
+    good: {
       type: Object
     }
   },
@@ -24,19 +24,19 @@ export default {
   },
   methods: {
     addCart (event) {
-      // const index = this._findIndex(this.cartList, this.goods)
+      // const index = this._findIndex(this.cartList, this.good)
       // if (index > 0) {
       //   const count = this.cartList[index].count;
       //   if (count === 1) {
       //
       //   }
       // }
-      this.saveCartList(this.goods)
+      this.saveCartList(this.good)
       this.$emit('add', event.target)
     },
-    _findIndex (list, goods) {
+    _findIndex (list, good) {
       return list.findIndex(item => {
-        return item.id === goods.id
+        return item.id === good.id
       })
     },
     ...mapMutations({

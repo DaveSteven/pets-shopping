@@ -8,14 +8,14 @@
       <div class="cell ops">操作</div>
     </div>
     <div class="shop-cart-list">
-      <div class="goods" v-for="(item, index) in cartList" :key="index">
+      <div class="good" v-for="(item, index) in cartList" :key="index">
         <div class="cell product">
           <div class="img"><img :src="item.img" alt=""></div>
           <div class="name">{{ item.name }}</div>
         </div>
         <div class="cell price">¥{{ item.price | decimal }}</div>
         <div class="cell count">
-          <CartControl :goods="item"></CartControl>
+          <CartControl :good="item"></CartControl>
         </div>
         <div class="cell total">¥{{ item.price * item.count | decimal }}</div>
         <div class="cell ops">删除</div>
@@ -34,8 +34,8 @@ export default {
   computed: {
     totalPrice () {
       let total = 0
-      this.cartList.forEach(goods => {
-        total += goods.price * goods.count
+      this.cartList.forEach(good => {
+        total += good.price * good.count
       })
       return total
     },

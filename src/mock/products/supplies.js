@@ -13,7 +13,7 @@ const data = Mock.mock({
     ],
     'stock|1-100': 1,
     'description|10-50': '商品描述',
-    'goods_type': '0'
+    'good_type': '0'
   }]
 })
 

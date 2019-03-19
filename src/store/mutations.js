@@ -1,20 +1,39 @@
 import * as types from './mutation-types'
 import { saveCartList } from 'common/js/catch'
 
-function findIndex (list, goods) {
+function findIndex (list, good) {
   return list.findIndex(item => {
-    return item.id === goods.id
+    return item.id === good.id
   })
 }
 
 const mutations = {
-  [types.SET_CART_LIST] (state, goods) {
+  [types.SET_CART_LIST] (state, good) {
     const cartList = state.cartList
-    let index = findIndex(cartList, goods)
+    let index = findIndex(cartList, good)
     if (index >= 0) {
       cartList[index].count++
     } else {
-      cartList.push({ ...goods, count: 1 })
+      cartList.push({ ...good, count: 1 })
+    }
+    saveCartList(cartList)
+  },
+  [types.ADD_GOOD_COUNT] (state, good) {
+    const cartList = state.cartList
+    let index = findIndex(cartList, good)
+    if (index >= 0) {
+      cartList[index].count++
+    }
+    saveCartList(cartList)
+  },
+  [types.DECREASE_GOOD_COUNT] (state, good) {
+    const cartList = state.cartList
+    let index = findIndex(cartList, good)
+    if (index >= 0) {
+      const count = cartList[index].count
+      if (count > 0) {
+        cartList[index].count--
+      }
     }
     saveCartList(cartList)
   }

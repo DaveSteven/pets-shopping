@@ -7,7 +7,7 @@
           <div class="cover mb10"><img :src="item.img" alt=""></div>
           <div class="name mb5">{{ item.name }}</div>
           <div class="price">¥{{ item.price | decimal }}</div>
-          <ProductTools :goods="item"></ProductTools>
+          <ProductTools :good="item"></ProductTools>
         </div>
       </Card>
       </Col>
