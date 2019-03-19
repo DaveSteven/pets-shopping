@@ -19,3 +19,5 @@ export const cart = (state) => {
 }
 
 export const loginVisible = (state) => state.loginVisible
+
+export const user = (state) => state.user

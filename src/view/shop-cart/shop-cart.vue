@@ -27,7 +27,7 @@
               <div>¥{{ total }}</div>
             </div>
           </Card>
-          <Button long type="primary" size="large">结算</Button>
+          <Button long type="primary" size="large" @click="checkout">结算</Button>
         </div>
       </Col>
     </Row>
@@ -67,6 +67,11 @@ export default {
       setTimeout(() => {
         this.petsList = petsData.data
       }, 100)
+    },
+    checkout () {
+      this.$router.push({
+        path: '/cart/checkout'
+      })
     }
   }
 }

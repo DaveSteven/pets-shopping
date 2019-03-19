@@ -68,5 +68,13 @@ export default [
       hideInMenu: true
     },
     component: () => import('@/view/shop-cart/shop-cart')
+  },
+  {
+    path: '/cart/checkout',
+    name: 'Checkout',
+    meta: {
+      title: '购物车结算'
+    },
+    component: () => import('@/view/checkout/checkout')
   }
 ]

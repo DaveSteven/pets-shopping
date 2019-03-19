@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 const Random = Mock.Random
 const data = Mock.mock({
   'data|8-20': [{
-    'id|+1': '1',
+    'id|+1': 1,
     'img': Random.image('308x364', Random.color()),
     'price|2000-10000': 2888,
     'name|1-2': '名称',
@@ -37,7 +37,7 @@ const data = Mock.mock({
   }]
 })
 
-data.data.forEach(item => {
+data.data.forEach((item) => {
   item.id = `pets_${item.id}`
 })
 

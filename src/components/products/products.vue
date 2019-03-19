@@ -1,13 +1,13 @@
 <template>
   <div class="products">
     <Row :gutter="5" class="product-list">
-      <Col class="product-item" :span="span" v-for="(item, index) in productList" :key="index">
+      <Col class="product-item" :span="span" v-for="(good, index) in productList" :key="index">
       <Card :bordered="false">
         <div class="product-container">
-          <div class="cover mb10"><img :src="item.img" alt=""></div>
-          <div class="name mb5">{{ item.name }}</div>
-          <div class="price">¥{{ item.price | decimal }}</div>
-          <ProductTools :good="item"></ProductTools>
+          <div class="cover mb10"><img :src="good.img" alt=""></div>
+          <div class="name mb5">{{ good.name }}</div>
+          <div class="price">¥{{ good.price | decimal }}</div>
+          <ProductTools :good="good"></ProductTools>
         </div>
       </Card>
       </Col>
