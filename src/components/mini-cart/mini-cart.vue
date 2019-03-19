@@ -43,9 +43,14 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'cartList',
-      'total'
-    ])
+      'cart'
+    ]),
+    cartList () {
+      return this.cart.list
+    },
+    total () {
+      return this.cart.total
+    }
   },
   methods: {
     viewDetail () {

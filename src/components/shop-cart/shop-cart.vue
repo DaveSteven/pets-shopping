@@ -8,23 +8,25 @@
       <div class="cell ops">操作</div>
     </div>
     <div class="shop-cart-list">
-      <div class="good" v-for="(item, index) in cartList" :key="index">
+      <div class="good" v-for="(good, index) in cartList" :key="index">
         <div class="cell product">
-          <div class="img"><img :src="item.img" alt=""></div>
-          <div class="name">{{ item.name }}</div>
+          <div class="img"><img :src="good.img" alt=""></div>
+          <div class="name">{{ good.name }}</div>
         </div>
-        <div class="cell price">¥{{ item.price | decimal }}</div>
+        <div class="cell price">¥{{ good.price | decimal }}</div>
         <div class="cell count">
-          <CartControl :good="item"></CartControl>
+          <CartControl :good="good"></CartControl>
         </div>
-        <div class="cell total">¥{{ item.price * item.count | decimal }}</div>
-        <div class="cell ops">删除</div>
+        <div class="cell total">¥{{ good.price * good.count | decimal }}</div>
+        <div class="cell ops" @click="remove(good)">
+          <span class="remove">删除</span>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import CartControl from '_c/cart-control'
 
 export default {
@@ -32,15 +34,19 @@ export default {
     CartControl
   },
   computed: {
-    totalPrice () {
-      let total = 0
-      this.cartList.forEach(good => {
-        total += good.price * good.count
-      })
-      return total
-    },
     ...mapGetters([
-      'cartList'
+      'cart'
+    ]),
+    cartList () {
+      return this.cart.list
+    }
+  },
+  methods: {
+    remove (good) {
+      this.removeGood({ good })
+    },
+    ...mapActions([
+      'removeGood'
     ])
   }
 }

@@ -53,8 +53,11 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'total'
-    ])
+      'cart'
+    ]),
+    total () {
+      return this.cart.total
+    }
   },
   created () {
     this.getProduct()

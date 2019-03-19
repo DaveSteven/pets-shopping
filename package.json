@@ -14,6 +14,7 @@
     "iview": "^3.3.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "lodash.clonedeep": "^4.5.0",
     "mockjs": "^1.0.1-beta3",
     "v-click-outside-x": "^4.0.1",
     "vue": "^2.6.6",

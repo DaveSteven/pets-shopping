@@ -1,38 +1,77 @@
 <template>
   <div class="cart-control">
     <span class="opt-btn" :class="{disabled: isOnlyOne}" @click="decrease">&#45;</span>
-    <span class="count">{{ good.count }}</span>
-    <span class="opt-btn" @click="add">&#43;</span>
+    <span class="count">
+      <Input v-model.number="count" @on-blur="countOnChange" />
+    </span>
+    <span class="opt-btn" :class="{disabled: isMaxCount}" @click="add">&#43;</span>
   </div>
 </template>
 <script>
-import { mapMutations } from 'vuex'
+import { mapActions } from 'vuex'
+import { Input } from 'iview'
 
 export default {
+  components: {
+    Input
+  },
   props: {
     good: {
       type: Object
     }
   },
+  data () {
+    return {
+      count: this.good.count
+    }
+  },
+  watch: {
+    'good.count' (val) {
+      this.count = val
+    }
+  },
   computed: {
     isOnlyOne () {
-      return this.good.count === 1
+      return this.count === 1
+    },
+    isMaxCount () {
+      return this.count >= 99
     }
   },
   methods: {
     add () {
-      this._add(this.good)
+      if (this.isMaxCount) {
+        return
+      }
+      this.addCart({
+        good: this.good
+      })
     },
     decrease () {
       if (this.isOnlyOne) {
         return
       }
-      this._decrease(this.good)
+      this.decreaseCart({
+        good: this.good
+      })
     },
-    ...mapMutations({
-      '_add': 'ADD_GOOD_COUNT',
-      '_decrease': 'DECREASE_GOOD_COUNT'
-    })
+    countOnChange () {
+      if (!this.count) {
+        return
+      }
+      if (this.isMaxCount) {
+        this.count = 99
+      }
+      this.setGoodCount({
+        good: this.good,
+        count: this.count
+      })
+    },
+    ...mapActions([
+      'addCart',
+      'decreaseCart',
+      'setGoodCount'
+    ])
   }
 }
 </script>

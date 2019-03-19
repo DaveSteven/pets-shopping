@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import { mapMutations, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: {
@@ -18,29 +18,19 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([
-      'cartList'
-    ])
+    ...mapGetters({
+      'cartList': 'cart.list'
+    })
   },
   methods: {
     addCart (event) {
-      // const index = this._findIndex(this.cartList, this.good)
-      // if (index > 0) {
-      //   const count = this.cartList[index].count;
-      //   if (count === 1) {
-      //
-      //   }
-      // }
-      this.saveCartList(this.good)
+      this._addCart({
+        good: this.good
+      })
       this.$emit('add', event.target)
     },
-    _findIndex (list, good) {
-      return list.findIndex(item => {
-        return item.id === good.id
-      })
-    },
-    ...mapMutations({
-      saveCartList: 'SET_CART_LIST'
+    ...mapActions({
+      '_addCart': 'addCart'
     })
   }
 }

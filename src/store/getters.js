@@ -11,6 +11,9 @@ function getTotal (list) {
 
 export const menuList = (state, getters, rootState) => getMenuByRouter(routes)
 
-export const cartList = (state) => state.cartList
-
-export const total = (state) => getTotal(state.cartList)
+export const cart = (state) => {
+  return {
+    list: state.cartList,
+    total: getTotal(state.cartList)
+  }
+}

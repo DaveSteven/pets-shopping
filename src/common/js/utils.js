@@ -107,3 +107,7 @@ export const decimal = (number) => {
   }
   return number.toFixed(2)
 }
+
+export const deepCopy = (target) => {
+
+}
