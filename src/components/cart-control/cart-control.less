@@ -1,0 +1,27 @@
+@import "~common/less/variable";
+
+.cart-control {
+  display: inline-block;
+
+  > span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .count {
+    min-width: 20px;
+  }
+
+  .opt-btn {
+    width: 20px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+
+    &:hover {
+      color: @primary-color;
+    }
+  }
+}

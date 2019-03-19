@@ -100,3 +100,10 @@ export const getMenuByRouter = (list) => {
 export const hasChild = (item) => {
   return item.children && item.children.length !== 0
 }
+
+export const decimal = (number) => {
+  if (!number) {
+    return '0.00'
+  }
+  return number.toFixed(2)
+}

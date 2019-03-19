@@ -14,12 +14,12 @@
                 <div class="text">
                   <h5 class="title">{{ item.name }}</h5>
                   <div class="price">
-                    {{ item.count }} x <span class="text-primary f16">¥{{ item.price }}</span>
+                    {{ item.count }} x <span class="text-primary f16">¥{{ item.price | decimal }}</span>
                   </div>
                 </div>
               </li>
             </ul>
-            <div class="text-right text-bold pr20 mb10 f14">总计：¥{{ totalPrice }}</div>
+            <div class="text-right text-bold pr20 mb10 f14">总计：¥{{ total }}</div>
             <Row type="flex" justify="space-between">
               <Col><Button type="default" @click="viewDetail">查看详情</Button></Col>
               <Col><Button type="primary" @click="checkout">结算</Button></Col>
@@ -43,20 +43,14 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'cartList'
-    ]),
-    totalPrice () {
-      let total = 0
-      this.cartList.forEach(goods => {
-        total += goods.price * goods.count
-      })
-      return total
-    }
+      'cartList',
+      'total'
+    ])
   },
   methods: {
     viewDetail () {
       this.$router.push({
-        path: '/shop-cart'
+        path: '/cart'
       })
     },
     checkout () {}

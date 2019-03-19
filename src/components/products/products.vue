@@ -1,13 +1,12 @@
 <template>
   <div class="products">
-    <TitleBar class="mb5" :title="title" @on-click="onClick"></TitleBar>
     <Row :gutter="5" class="product-list">
       <Col class="product-item" :span="span" v-for="(item, index) in productList" :key="index">
       <Card :bordered="false">
         <div class="product-container">
           <div class="cover mb10"><img :src="item.img" alt=""></div>
           <div class="name mb5">{{ item.name }}</div>
-          <div class="price">¥{{ item.price }}</div>
+          <div class="price">¥{{ item.price | decimal }}</div>
           <ProductTools :goods="item"></ProductTools>
         </div>
       </Card>
@@ -16,7 +15,6 @@
   </div>
 </template>
 <script>
-import TitleBar from '_c/title-bar'
 import ProductTools from '_c/product-tools'
 import { oneOf } from 'common/js/utils'
 import listMixins from '@/mixins/list'
@@ -26,7 +24,6 @@ export default {
     listMixins
   ],
   components: {
-    TitleBar,
     ProductTools
   },
   props: {
