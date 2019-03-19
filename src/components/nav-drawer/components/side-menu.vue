@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     select (name) {
+      this.$emit('select')
       this.$router.push({ name })
     }
   }

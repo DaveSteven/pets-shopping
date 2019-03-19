@@ -6,7 +6,7 @@
         <Logo class="mr30"></Logo>
         <Search class="mr70"></Search>
         <MiniCart></MiniCart>
-        <UserPanel></UserPanel>
+        <UserMenu></UserMenu>
       </header>
     </div>
   </div>
@@ -16,7 +16,7 @@ import NavDrawer from '_c/nav-drawer'
 import Logo from '_c/logo'
 import Search from '_c/search'
 import MiniCart from '_c/mini-cart'
-import UserPanel from '_c/user-panel'
+import UserMenu from '_c/user-menu'
 
 export default {
   components: {
@@ -24,7 +24,7 @@ export default {
     Logo,
     Search,
     MiniCart,
-    UserPanel
+    UserMenu
   }
 }
 </script>

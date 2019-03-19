@@ -19,7 +19,7 @@
       <div class="menu-header" slot="header">主页菜单</div>
       <div class="menu-close" slot="close"><Icon type="close" :size="20"></Icon></div>
       <div class="menu-wrapper">
-        <SideMenu :menu-list="menuList"></SideMenu>
+        <SideMenu :menu-list="menuList" @select="select"></SideMenu>
       </div>
     </Drawer>
   </div>
@@ -47,6 +47,9 @@ export default {
     handleClick (event) {
       this.$emit('click', event)
       this.visible = !this.visible
+    },
+    select () {
+      this.visible = false
     }
   }
 }

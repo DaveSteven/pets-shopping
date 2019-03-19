@@ -17,3 +17,5 @@ export const cart = (state) => {
     total: getTotal(state.cartList)
   }
 }
+
+export const loginVisible = (state) => state.loginVisible

@@ -8,42 +8,33 @@
       </DropdownMenu>
     </Dropdown>
     <span v-if="unLogin" class="tool-btn"><Icon type="setting" :size="20"></Icon></span>
-    <Modal v-model="loginVisible" :footer-hide="true" :closable="false">
-      <div class="login-body">
-        <span class="modal-close-btn" @click="close"><Icon type="close"></Icon></span>
-        <Login></Login>
-      </div>
-    </Modal>
   </div>
 </template>
 <script>
-import { Dropdown, DropdownMenu, DropdownItem, Modal } from 'iview'
-import Login from '_c/login'
+import { Dropdown, DropdownMenu, DropdownItem } from 'iview'
+import { mapMutations } from 'vuex'
 
 export default {
   components: {
     Dropdown,
     DropdownMenu,
-    DropdownItem,
-    Modal,
-    Login
+    DropdownItem
   },
   data () {
     return {
-      loginVisible: false,
       type: 'login',
       unLogin: false
     }
   },
   methods: {
-    close () {
-      this.loginVisible = false
-    },
     dropdownClick (name) {
       this.type = name
-      this.loginVisible = true
-    }
+      this.setLoginVisible(true)
+    },
+    ...mapMutations({
+      'setLoginVisible': 'SET_LOGIN_VISIBLE'
+    })
   }
 }
 </script>
-<style src="./user-panel.less" lang="less" scoped></style>
+<style src="./user-menu.less" lang="less" scoped></style>

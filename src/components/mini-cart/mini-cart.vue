@@ -29,7 +29,7 @@
         </div>
       </DropdownMenu>
     </Dropdown>
-    <div class="cart-num">{{ cartList.length }}</div>
+    <div class="cart-num">{{ totalCount }}</div>
   </div>
 </template>
 <script>
@@ -50,6 +50,9 @@ export default {
     },
     total () {
       return this.cart.total
+    },
+    totalCount () {
+      return this.cartList.length
     }
   },
   methods: {

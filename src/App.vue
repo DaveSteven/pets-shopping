@@ -6,6 +6,7 @@
     </div>
     <Contacts class="mt50"></Contacts>
     <Footer></Footer>
+    <LoginModal></LoginModal>
   </div>
 </template>
 
@@ -13,13 +14,15 @@
 import Header from '_c/header'
 import Contacts from '_c/contacts'
 import Footer from '_c/footer'
+import LoginModal from '_c/login-modal'
 
 export default {
   name: 'app',
   components: {
     Header,
     Contacts,
-    Footer
+    Footer,
+    LoginModal
   }
 }
 </script>
