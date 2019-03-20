@@ -77,5 +77,13 @@ export default [
       hideInMenu: true
     },
     component: () => import('@/view/checkout/checkout')
+  },
+  {
+    path: '/blog',
+    name: 'Blog',
+    meta: {
+      title: '博客'
+    },
+    component: () => import('@/view/blog/blog')
   }
 ]
