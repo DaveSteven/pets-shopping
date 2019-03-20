@@ -1,17 +1,17 @@
 <template>
   <div class="search-wrapper">
-    <Select v-model="type" style="width: 80px">
-      <Option v-for="item in options" :value="item.value" :label="item.label" :key="item.value"></Option>
-    </Select>
     <div class="search-box" style="width: 510px">
-      <input class="search-input" type="text">
-      <Icon type="search" :size="24" color="#3b3b3d"></Icon>
+      <Input search class="search-input" type="text" size="large">
+        <Select slot="prepend" v-model="type" style="width: 80px">
+          <Option v-for="item in options" :value="item.value" :label="item.label" :key="item.value"></Option>
+        </Select>
+      </Input>
+      <!--<Icon type="search" :size="24" color="#3b3b3d"></Icon>-->
     </div>
   </div>
 </template>
 <script>
-import Select from '_b/select'
-import Option from '_b/select/option'
+import { Select, Option, Input } from 'iview'
 
 export default {
   data () {
@@ -35,7 +35,8 @@ export default {
   },
   components: {
     Select,
-    Option
+    Option,
+    Input
   }
 }
 </script>

@@ -1136,6 +1136,10 @@ are-we-there-yet@~1.1.2:
     delegates "^1.0.0"
     readable-stream "^2.0.6"
 
+area-data@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/area-data/-/area-data-1.0.0.tgz#497065709765e6318ed2209190b901cab7dd019f"
+
 argparse@^1.0.7:
   version "1.0.10"
   resolved "http://registry.npm.taobao.org/argparse/download/argparse-1.0.10.tgz#bcd6791ea5ae09725e17e5ad988134cd40b3d911"
@@ -4059,6 +4063,27 @@ isobject@^3.0.0, isobject@^3.0.1:
 isstream@~0.1.2:
   version "0.1.2"
   resolved "http://registry.npm.taobao.org/isstream/download/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
+
+iview-area@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/iview-area/-/iview-area-1.6.0.tgz#271d318b36c66abd34f2a65d6b3860f2d967a7e9"
+  dependencies:
+    area-data "^1.0.0"
+    iview "^3.0.0"
+    vue "^2.5.17"
+
+iview@^3.0.0:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/iview/-/iview-3.3.3.tgz#33d65408978659ddd78866ca99a85bf694d771bf"
+  dependencies:
+    async-validator "^1.10.0"
+    deepmerge "^2.2.1"
+    element-resize-detector "^1.2.0"
+    js-calendar "^1.2.3"
+    lodash.throttle "^4.1.1"
+    popper.js "^1.14.6"
+    tinycolor2 "^1.4.1"
+    v-click-outside-x "^3.5.6"
 
 iview@^3.3.0:
   version "3.3.0"
@@ -7106,6 +7131,10 @@ vue-template-compiler@^2.5.21:
 vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
+
+vue@^2.5.17:
+  version "2.6.9"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.9.tgz#415c1cc1a5ed00c8f0acdd0a948139d12b7ea6b3"
 
 vue@^2.6.6:
   version "2.6.8"

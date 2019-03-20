@@ -12,6 +12,7 @@
     "better-scroll": "^1.15.0",
     "good-storage": "^1.1.0",
     "iview": "^3.3.0",
+    "iview-area": "^1.6.0",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lodash.clonedeep": "^4.5.0",

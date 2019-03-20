@@ -8,7 +8,8 @@
 @menu-dark-group-title-color  : rgba(255,255,255,.36);
 
 
-/* 修改组件样式 */
+
+// 主页左侧菜单样式调整
 .@{drawer-prefix-cls} {
   &-header {
     border: 0;
@@ -41,8 +42,35 @@
   }
 }
 
+// 购物车控制组件，表单居中
 .cart-control {
   .@{input-prefix-cls} {
     text-align: center;
+  }
+}
+
+// 添加地址表单，标题加粗
+.address-form {
+  .@{form-prefix-cls} {
+    .@{form-item-prefix-cls}-label {
+      font-weight: 700;
+    }
+  }
+}
+
+// 搜索组件input样式调整
+.search-wrapper {
+  .@{input-prefix-cls}-group{
+    &-prepend,
+    &-append
+    {
+      // Reset Select's style in addon
+      .@{css-prefix}select {
+        &-selection {
+          background-color: #fff;
+          margin-left: 0;
+        }
+      }
+    }
   }
 }
