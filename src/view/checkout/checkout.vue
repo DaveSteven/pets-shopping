@@ -1,7 +1,7 @@
 <template>
   <div class="checkout-wrapper">
     <TitleBar title="选择配送地址" class="mb5" :show-button="false"></TitleBar>
-    <Card :bordered="false">
+    <Card :bordered="false" class="mb20">
       <div class="p30">
         <h1 class="title">已添加的地址</h1>
         <AddressList class="mb40"></AddressList>
@@ -14,6 +14,7 @@
         </div>
       </div>
     </Card>
+    <TitleBar title="选择支付方式" class="mb5" :show-button="false"></TitleBar>
   </div>
 </template>
 <script>
