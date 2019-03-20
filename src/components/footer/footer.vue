@@ -1,6 +1,6 @@
 <template>
   <div class="footer-wrapper">
-    <div class="pets-img"><img :src="petsImg" alt=""></div>
+    <div v-show="isHomePage" class="pets-img"><img :src="petsImg" alt=""></div>
     <div class="container">
       <footer>
         <div class="footer-head">
@@ -15,7 +15,7 @@
             <Icon type="visa" />
           </div>
         </div>
-        <div class="footer-body">
+        <div v-show="isHomePage" class="footer-body">
           <div class="shortcut">
             <div class="item">
               <h5 class="title">关于</h5>
@@ -74,6 +74,11 @@
 import petsImg from './pets-img.png'
 
 export default {
+  computed: {
+    isHomePage () {
+      return this.$route.path === '/'
+    }
+  },
   data () {
     return {
       petsImg

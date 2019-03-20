@@ -3,7 +3,7 @@
     <Row :gutter="30">
       <Col span="8" class="item" v-for="(item, index) in user.address" :key="index">
         <p>
-          <span class="text-bold">{{ item.receiver }}</span>
+          <span class="text-bold">{{ item.name }}</span>
         </p>
         <p>
           <span class="mr5">{{ item.province }}</span>
@@ -13,7 +13,7 @@
         <p>{{ item.address }}</p>
         <p>{{ item.code }}</p>
         <p class="mb20">电话：{{ item.phone }}</p>
-        <p class="mb10"><Button type="primary" long ghost>送货到该地址</Button></p>
+        <p class="mb10"><Button type="primary" long ghost @click="select(item)">送货到该地址</Button></p>
         <Row :gutter="20">
           <Col span="12">
             <Button size="small" long>编辑</Button>
@@ -34,6 +34,11 @@ export default {
     ...mapGetters([
       'user'
     ])
+  },
+  methods: {
+    select (item) {
+      this.$emit('select', item)
+    }
   }
 }
 </script>

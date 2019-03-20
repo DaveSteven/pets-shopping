@@ -8,3 +8,12 @@ export const saveCartList = (list) => {
 export const getCartList = () => {
   return storage.get(CART_KEY, [])
 }
+
+const SELECTED_ADDRESS_KEY = '__selectedAddress__'
+export const saveAddress = (obj) => {
+  storage.session.set(SELECTED_ADDRESS_KEY, obj)
+}
+
+export const getAddress = () => {
+  return storage.session.get(SELECTED_ADDRESS_KEY, {})
+}

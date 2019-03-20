@@ -73,7 +73,8 @@ export default [
     path: '/cart/checkout',
     name: 'Checkout',
     meta: {
-      title: '购物车结算'
+      title: '购物车结算',
+      hideInMenu: true
     },
     component: () => import('@/view/checkout/checkout')
   }
