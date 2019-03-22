@@ -28,7 +28,7 @@
   </Modal>
 </template>
 <script>
-import { Form, FormItem, Input, Checkbox, Modal } from 'iview'
+import { Form, FormItem, Input, Checkbox, Modal, Message } from 'iview'
 import { mapMutations, mapGetters, mapActions } from 'vuex'
 import Logo from '_c/logo'
 
@@ -84,11 +84,17 @@ export default {
         ...this.loginForm
       }).then(() => {
         this.setLoginVisible(false)
-        this.getUserInformation()
+        Message.success('注册成功')
+        this.$nextTick(function () {
+          this.setLoginAction('login')
+          this.setLoginVisible(true)
+          this.getUserInformation()
+        })
       })
     },
     ...mapMutations({
-      'setLoginVisible': 'SET_LOGIN_VISIBLE'
+      'setLoginVisible': 'SET_LOGIN_VISIBLE',
+      'setLoginAction': 'SET_LOGIN_ACTION'
     }),
     ...mapActions([
       'getUserInformation'

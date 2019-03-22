@@ -27,7 +27,7 @@
           <div class="text-right text-bold pr20 mb10 f14">总计：¥{{ total }}</div>
           <Row type="flex" justify="space-between">
             <Col><Button type="default" @click="viewDetail">查看详情</Button></Col>
-            <Col><Button type="primary" @click="checkout">结算</Button></Col>
+            <Col><Button type="primary" @click="viewDetail">结算</Button></Col>
           </Row>
         </template>
         <div v-else class="text-primary text-bold">购物车是空的～</div>

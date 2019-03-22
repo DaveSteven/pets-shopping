@@ -19,7 +19,7 @@ import Logo from '_c/logo'
 import Search from '_c/search'
 import MiniCart from '_c/mini-cart'
 import UserMenu from '_c/user-menu'
-import { Affix } from 'iview'
+import { Affix, Message } from 'iview'
 
 export default {
   components: {
@@ -42,6 +42,7 @@ export default {
         if (!newVal) {
           this.$nextTick(function () {
             this.isRouterActive = true
+            Message.suucess('退出成功')
           })
         }
       },
