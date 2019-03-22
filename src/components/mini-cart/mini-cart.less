@@ -32,8 +32,11 @@
     width: 300px;
 
     .cart-list {
-      max-height: 300px;
-      overflow-y: auto;
+      &-wrapper {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+      }
 
       .cart-item {
         display: flex;

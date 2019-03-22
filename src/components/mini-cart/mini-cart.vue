@@ -1,6 +1,6 @@
 <template>
   <div class="cart-wrapper">
-    <Dropdown placement="bottom-end" trigger="click">
+    <Dropdown placement="bottom-end" trigger="click" @on-visible-change="visibleChange">
       <div class="cart-btn">
         <span><Icon type="cart" :size="14" />购物车</span>
         <Icon type="down-arrow" :size="12" />
@@ -8,17 +8,19 @@
       <DropdownMenu slot="list">
         <div class="cart-container">
           <template v-if="cartList.length">
-            <ul class="cart-list">
-              <li class="cart-item" v-for="(item, index) in cartList" :key="index">
-                <div class="img"><img :src="item.img"></div>
-                <div class="text">
-                  <h5 class="title">{{ item.name }}</h5>
-                  <div class="price">
-                    {{ item.count }} x <span class="text-primary f16">¥{{ item.price | decimal }}</span>
+            <Scroll class="cart-list-wrapper" :data="cartList" ref="listview">
+              <ul class="cart-list">
+                <li class="cart-item" v-for="(item, index) in cartList" :key="index">
+                  <div class="img"><img :src="item.img"></div>
+                  <div class="text">
+                    <h5 class="title">{{ item.name }}</h5>
+                    <div class="price">
+                      {{ item.count }} x <span class="text-primary f16">¥{{ item.price | decimal }}</span>
+                    </div>
                   </div>
-                </div>
-              </li>
-            </ul>
+                </li>
+              </ul>
+            </Scroll>
             <div class="text-right text-bold pr20 mb10 f14">总计：¥{{ total }}</div>
             <Row type="flex" justify="space-between">
               <Col><Button type="default" @click="viewDetail">查看详情</Button></Col>
@@ -33,14 +35,18 @@
   </div>
 </template>
 <script>
+import Scroll from '_b/scroll'
 import { Dropdown, DropdownMenu } from 'iview'
 import { mapGetters } from 'vuex'
+import ScrollbarMixins from 'iview/src/components/modal/mixins-scrollbar'
 
 export default {
   components: {
     Dropdown,
-    DropdownMenu
+    DropdownMenu,
+    Scroll
   },
+  mixins: [ ScrollbarMixins ],
   computed: {
     ...mapGetters([
       'cart'
@@ -61,7 +67,15 @@ export default {
         path: '/cart'
       })
     },
-    checkout () {}
+    checkout () {},
+    visibleChange (visible) {
+      if (visible) {
+        this.addScrollEffect()
+      } else {
+        this.removeScrollEffect()
+      }
+      this.$refs.listview.refresh()
+    }
   }
 }
 </script>

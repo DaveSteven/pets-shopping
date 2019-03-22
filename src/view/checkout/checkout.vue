@@ -81,7 +81,6 @@ export default {
       this._setAddress({})
     },
     paymentSelect (payment) {
-      console.log(payment)
       this.payment = payment
     },
     submitOrder () {
