@@ -1,15 +1,18 @@
 <template>
-  <Row :gutter="5" class="blog">
-    <Col :span="span" v-for="(item, index) in blogList" :key="index">
+  <Row :gutter="5" class="blog-list-wrapper">
+    <Col class="mb5" :span="span" v-for="(item, index) in blogList" :key="index">
       <Card :bordered="false">
         <div class="blog-item" :class="itemClass">
-          <div class="cover" :style="{'background-image': `url(${item.cover})`}"></div>
+          <div class="cover mb5">
+            <img :src="item.cover" alt="">
+          </div>
           <div class="content">
-            <span class="datetime">{{ item.time }}</span>
+            <span class="datetime">{{ item.time | getRelativeTime }}</span>
             <h3 class="title">{{ item.title }}</h3>
             <p class="info">
-              <span class="mr15">作者：{{ item.user_name }}</span>
-              <span>评论数：{{ item.comments }}</span>
+              <span>作者：<i class="text-primary text-hover-underline">{{ item.user_name }}</i></span>
+              <span class="ml5 mr5 text-gray">|</span>
+              <span>评论数：<i class="text-primary text-hover-underline">{{ item.comments }}</i></span>
             </p>
             <p class="text">{{ item.content }}</p>
           </div>
@@ -70,4 +73,4 @@ export default {
   }
 }
 </script>
-<style src="./blogs.less" lang="less" scoped></style>
+<style src="./blog-articles.less" lang="less" scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Blogs :columns="3" :data="blogData" :lines="1" size="small" class="mb5"></Blogs>
+    <BlogArticles :columns="3" :data="blogData" :lines="1" size="small" class="mb5"></BlogArticles>
     <HomeSlider :data="sliderData" class="mb30"></HomeSlider>
     <TitleBar class="mb5" title="今日萌宠"></TitleBar>
     <Products :columns="4" :lines="2" :data="petsData" class="mb30"></Products>
@@ -9,7 +9,7 @@
   </div>
 </template>
 <script>
-import Blogs from '_c/blogs'
+import BlogArticles from '_c/blog-articles'
 import HomeSlider from '_c/home-slider'
 import Products from '_c/products'
 import TitleBar from '_c/title-bar'
@@ -18,9 +18,10 @@ import blogData from '@/mock/blog'
 import sliderData from '@/mock/slider'
 import petsData from '@/mock/products/pets'
 import suppliesData from '@/mock/products/supplies'
+
 export default {
   components: {
-    Blogs,
+    BlogArticles,
     HomeSlider,
     Products,
     TitleBar
