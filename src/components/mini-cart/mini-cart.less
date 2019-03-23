@@ -1,33 +1,32 @@
 @import "~common/less/variable";
+@prefix: ~"mini-";
 
-.cart {
-  &-wrapper {
-    position: relative;
-    width: 98px;
-    height: 28px;
-    border: 1px solid #ebebeb;
-    line-height: 28px;
-    border-radius: @border-radius-value;
-    cursor: pointer;
-    background-color: #fff;
-    transition: all @animation-time @animation-timing-function;
-    color: @text-color;
+.@{prefix}cart {
+  position: relative;
+  width: 98px;
+  height: 28px;
+  border: 1px solid #ebebeb;
+  line-height: 28px;
+  border-radius: @border-radius-value;
+  cursor: pointer;
+  background-color: #fff;
+  transition: all @animation-time @animation-timing-function;
+  color: @text-color;
 
-    &:hover {
-      background-color: @primary-color;
-      border-color: @primary-color;
+  &:hover {
+    background-color: @primary-color;
+    border-color: @primary-color;
 
-      .cart-btn {
+    .@{prefix}cart-btn {
+      color: #fff;
+
+      .iconfont {
         color: #fff;
-
-        .iconfont {
-          color: #fff;
-        }
       }
     }
   }
 
-  &-container {
+  &-drop_list {
     padding: 10px;
     width: 300px;
 
