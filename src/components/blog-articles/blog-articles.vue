@@ -11,8 +11,8 @@
             <h3 class="title" @click.stop="select(item)">{{ item.title }}</h3>
             <p class="info">
               <span>作者：<i class="text-primary text-hover-underline">{{ item.user_name }}</i></span>
-              <span class="ml5 mr5 text-gray">|</span>
-              <span>评论数：<i class="text-primary text-hover-underline">{{ item.comments }}</i></span>
+              <!-- <span class="ml5 mr5 text-gray">|</span>
+              <span>评论数：<i class="text-primary text-hover-underline">{{ item.comments }}</i></span> -->
             </p>
             <p class="text" v-html="item.content"></p>
           </div>
@@ -73,7 +73,8 @@ export default {
   },
   data () {
     return {
-      blogList: []
+      blogList: [],
+      comments: 388
     }
   }
 }

@@ -97,11 +97,15 @@ export const getUserInformation = ({ commit, state }) => {
     try {
       getUserInfo().then(res => {
         const data = res.data
-        commit(types.SET_USER_ID, data.id)
-        commit(types.SET_USER_AVATAR, data.head)
-        commit(types.SET_USER_NAME, data.name)
-        commit(types.SET_LOGIN_STATE, true)
-        resolve(data)
+        if (data) {
+          commit(types.SET_USER_ID, data.id)
+          commit(types.SET_USER_AVATAR, data.head)
+          commit(types.SET_USER_NAME, data.name)
+          commit(types.SET_LOGIN_STATE, true)
+          resolve(data)
+        } else {
+          commit(types.SET_LOGIN_STATE, false)
+        }
       }).catch(err => {
         commit(types.SET_LOGIN_STATE, false)
         reject(err)
@@ -127,11 +131,13 @@ export const userLogout = ({ commit, state }) => {
         commit(types.SET_USER_NAME, '')
         commit(types.SET_LOGIN_STATE, false)
         resolve('')
-      }).catch(err => {
+      }).catch((err) => {
         reject(err)
       })
-    } catch (error) {
-      reject(err)
+    } catch (e) {
+      reject(e)
     }
+  }).catch(err => {
+    // reject();
   })
 }

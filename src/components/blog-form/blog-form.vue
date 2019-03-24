@@ -1,10 +1,10 @@
 <template>
   <div class="blog-form">
     <Form ref="blogForm" :model="form" :rules="formValidate" label-position="top">
-      <FormItem label="文章标题" prop="title">
+      <FormItem label="标题" prop="title">
         <Input v-model="form.title" />
       </FormItem>
-      <FormItem label="文章封面" prop="img">
+      <FormItem label="封面" prop="img">
         <ImgUpload
           v-model="form.img"
           :action="action"
@@ -12,7 +12,7 @@
           :bucketUrl="bucketUrl"
         />
       </FormItem>
-      <FormItem label="文章内容">
+      <FormItem label="帖子内容">
         <Editor
           v-model="form.content"
           ref="editor"

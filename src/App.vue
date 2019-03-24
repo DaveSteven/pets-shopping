@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="container">
       <keep-alive>
-        <router-view />
+        <router-view/>
       </keep-alive>
     </div>
     <Contacts class="mt50"></Contacts>

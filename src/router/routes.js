@@ -116,5 +116,14 @@ export default [
       hideInMenu: true
     },
     component: () => import('@/view/product-detail/product-detail')
+  },
+  {
+    path: '/searchDetail',
+    name: 'SearchDetail',
+    meta: {
+      title: '查询结果',
+      hideInMenu: true
+    },
+    component: () => import('@/view/search-result/index')
   }
 ]

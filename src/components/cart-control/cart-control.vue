@@ -1,10 +1,10 @@
 <template>
   <div class="cart-control">
-    <span v-if="controlButton" class="opt-btn" :class="{disabled: isOnlyOne}" @click="decrease">&#45;</span>
+    <Button v-if="controlButton" class="opt-btn" :class="{disabled: isOnlyOne}" @click="decrease">&#45;</Button>
     <span class="count">
       <Input v-model.number="count" @on-blur="countOnChange" :size="size" />
     </span>
-    <span v-if="controlButton" class="opt-btn" :class="{disabled: isMaxCount}" @click="add">&#43;</span>
+    <Button v-if="controlButton" class="opt-btn" :class="{disabled: isMaxCount}" @click="add">&#43;</Button>
   </div>
 </template>
 <script>

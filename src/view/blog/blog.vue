@@ -8,8 +8,10 @@
 import TitleBar from '_c/title-bar'
 import BlogArticles from '_c/blog-articles'
 
-import blogData from '@/mock/blog'
+// import blogData from '@/mock/blog'
 import { saveBlogData } from 'common/js/catch'
+import { getArticles } from '@/api/blog'
+import { debug } from 'util'
 
 export default {
   components: {
@@ -26,9 +28,11 @@ export default {
   },
   methods: {
     getBlogData () {
-      setTimeout(() => {
-        this.blogData = blogData.data
-      }, 200)
+      getArticles().then(res => {
+        setTimeout(() => {
+          this.blogData = res.data
+        }, 200)
+      })
     },
     select (data) {
       saveBlogData(data.id, data)

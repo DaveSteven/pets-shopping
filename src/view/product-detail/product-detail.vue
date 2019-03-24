@@ -6,12 +6,17 @@
         <div class="img"><img v-lazy="product.img" alt=""></div>
       </div>
       <div class="product-info">
-        <h1 class="f20 mb30">{{ product.name }}</h1>
-        <p class="price mb30">¥{{ product.price }}</p>
-        <div class="mb30">
-          <CartControl class="mr5" ref="cartControl" :goods="product" :control-button="false" size="large"></CartControl>
-          <Button type="primary" size="large" @click="addCart">加入购物车</Button>
+        <h1 class="price mb40">{{ product.name }}</h1>
+        <p class="f20 mb20" v-show="product.breed">品种：{{ product.breed }}</p>
+        <p class="f20 mb20" v-show="product.color">颜色：{{ product.color }}</p>
+        <p class="f20 mb20" v-show="product.nature">习性：{{ product.nature }}</p>
+        <p class="f20 mb20" v-show="product.birthday ">年龄：{{ product.birthday | getBirthday }}</p>
+        <p class="price mb30" >价格：￥{{ product.price }}</p>
+        <div class="mb30" v-if="product.type === 1">
+          <span>购买数量：</span>
+          <CartControl  class="mr5" ref="cartControl" :goods="product" :control-button="true" size="large"></CartControl>
         </div>
+        <Button type="primary" size="large" @click="addCart">加入购物车</Button>
       </div>
     </div>
     <div class="product-desc mb40">
@@ -42,24 +47,28 @@ export default {
   data () {
     return {
       product: {},
-      petsData: []
+      petsData: [],
+      type: null,
+      id: null
     }
   },
   created () {
-    const type = Number.parseInt(this.$route.query.type)
-    const id = this.$route.params.id
-    if (type === 0) {
-      this.product = getPet(id)
-    } else {
-      this.product = getPetProduct(id)
+    this.getDetail()
+  },
+  watch: {
+    '$route' (to, from) {
+      this.$router.go(0)
     }
-    this.getPets()
   },
   methods: {
-    getPets () {
-      getPets().then(res => {
-        this.petsData = res.data
-      })
+    getDetail () {
+      const type = this.$route.query.type
+      const id = this.$route.params.id
+      if (type === 'pet') {
+        this.product = getPet(id)
+      } else if (type === 'supply') {
+        this.product = getPetProduct(id)
+      }
     },
     addCart () {
       this.$refs.cartControl.add()

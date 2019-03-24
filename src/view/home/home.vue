@@ -3,9 +3,9 @@
     <BlogArticles :columns="3" :data="blogData" :lines="1" size="small" class="mb5" @select="selectBlog"></BlogArticles>
     <HomeSlider :data="sliderData" class="mb30"></HomeSlider>
     <TitleBar class="mb5" title="今日萌宠"></TitleBar>
-    <Products :columns="4" :lines="2" :data="petsData" class="mb30" @select="select"></Products>
+    <Products :columns="4" :lines="2" :data="petsData" class="mb30"  @select="select"></Products>
     <TitleBar class="mb5" title="萌宠用品"></TitleBar>
-    <Products title="萌宠用品" :columns="4" :lines="2" :data="suppliesData"></Products>
+    <Products title="萌宠用品" :columns="4" :lines="2" :data="suppliesData" @select="select"></Products>
   </div>
 </template>
 <script>
@@ -16,10 +16,12 @@ import Products from '_c/products'
 import TitleBar from '_c/title-bar'
 // 接口
 import { getSupplies, getPets } from '@/api/product'
+import { getArticles } from '@/api/blog'
 // mock
-import blogData from '@/mock/blog'
+// import blogData from '@/mock/blog'
 import sliderData from '@/mock/slider'
-import { savePet, saveBlogData } from 'common/js/catch'
+import { savePet, savePetProduct, saveBlogData } from 'common/js/catch'
+import { debug } from 'util'
 
 export default {
   components: {
@@ -44,9 +46,11 @@ export default {
   },
   methods: {
     getBlogData () {
-      setTimeout(() => {
-        this.blogData = blogData.data
-      }, 200)
+      getArticles().then(res => {
+        setTimeout(() => {
+          this.blogData = res.data
+        }, 200)
+      })
     },
     getSliderData () {
       setTimeout(() => {
@@ -64,13 +68,20 @@ export default {
       })
     },
     select (goods) {
+      let type = ''
+      if (goods.breed) {
+        savePet(goods)
+        type = 'pet'
+      } else {
+        savePetProduct(goods)
+        type = 'supply'
+      }
       this.$router.push({
         path: `/product/${goods.id}`,
         query: {
-          type: goods.type
+          type: type
         }
       })
-      savePet(goods)
     },
     selectBlog (blog) {
       saveBlogData(blog.id, blog)

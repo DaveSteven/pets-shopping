@@ -25,7 +25,7 @@ export function login ({ name, password }) {
 export function logout () {
   return axios.request({
     url: '/doLogout',
-    method: 'post'
+    method: 'get'
   })
 }
 

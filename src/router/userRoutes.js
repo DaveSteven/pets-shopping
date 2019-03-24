@@ -18,10 +18,10 @@ export default [
     path: `${ROUTE_PATH_PREFIX}/blog`,
     name: 'userBlog',
     meta: {
-      title: '博客列表',
+      title: '帖子列表',
       group: {
         type: 'blog',
-        title: '博客'
+        title: '帖子'
       },
       hideInMenu: true
     },
@@ -31,15 +31,15 @@ export default [
     path: `${ROUTE_PATH_PREFIX}/blog/add`,
     name: 'addBlog',
     meta: {
-      title: '添加文章',
+      title: '发布帖子',
       group: {
         type: 'blog',
-        title: '博客'
+        title: '帖子'
       },
       parentName: 'userBlog'
     },
     hideInMenu: true,
-    hideInUserMenu: true,
+    // hideInUserMenu: true,
     component: () => import('@/view/add-blog/add-blog')
   },
   {

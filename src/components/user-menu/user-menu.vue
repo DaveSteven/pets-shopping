@@ -1,12 +1,7 @@
 <template>
   <div class="user-panel">
-    <Dropdown v-if="!logined" class="dropdown" @on-click="dropdownClick">
-      <span class="tool-btn"><Icon type="user" :size="20"></Icon></span>
-      <DropdownMenu slot="list">
-        <DropdownItem name="login"><Icon type="login" class="mr5" />登录</DropdownItem>
-        <DropdownItem name="register"><Icon type="pencil" class="mr5" />注册</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
+
+    <!-- 已登录 -->
     <div v-if="logined" class="user-info">
       <div class="info">
         <Avatar class="mb5 mr5" :src="user.avatar" :width="40"></Avatar>
@@ -20,14 +15,25 @@
         </DropdownMenu>
       </Dropdown>
     </div>
+
+    <!-- 未登录 -->
+    <Dropdown v-else class="dropdown" @on-click="dropdownClick">
+      <span class="tool-btn"><Icon type="user" :size="20"></Icon></span>
+      <DropdownMenu slot="list">
+        <DropdownItem name="login"><Icon type="login" class="mr5" />登录</DropdownItem>
+        <DropdownItem name="register"><Icon type="pencil" class="mr5" />注册</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   </div>
 </template>
 <script>
 import Avatar from '_b/avatar'
 import { Dropdown, DropdownMenu, DropdownItem } from 'iview'
 import { mapMutations, mapActions, mapGetters } from 'vuex'
+import { debug } from 'util'
 
 export default {
+  props: ['isRouterActive'],
   components: {
     Dropdown,
     DropdownMenu,
@@ -59,9 +65,10 @@ export default {
     },
     logout () {
       this.userLogout().then(() => {
-        this.$router.push({
-          path: '/'
-        })
+        // this.$router.push({
+        //   path: '/'
+        // })
+        this.$emit('update:isRouterActive', false)
       })
     },
     ...mapMutations({
