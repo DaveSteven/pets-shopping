@@ -20,4 +20,6 @@ export const cart = (state) => {
 
 export const loginVisible = (state) => state.loginVisible
 
+export const loginAction = (state) => state.loginAction
+
 export const user = (state) => state.user

@@ -6,6 +6,15 @@ const mutations = {
   },
   [types.SET_LOGIN_VISIBLE] (state, flag) {
     state.loginVisible = flag
+  },
+  [types.SET_LOGIN_ACTION] (state, flag) {
+    state.loginAction = flag
+  },
+  [types.SET_USER_AVATAR] (state, avatar) {
+    state.user.avatar = avatar
+  },
+  [types.SET_USER_NAME] (state, name) {
+    state.user.name = name
   }
 }
 

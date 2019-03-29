@@ -1,4 +1,5 @@
 import axios from 'axios'
+import qs from 'qs'
 import { Message } from 'iview'
 
 class HttpRequest {
@@ -24,6 +25,9 @@ class HttpRequest {
       // 添加全局的loading...
       if (!Object.keys(this.queue).length) {
         // Spin.show() // 不建议开启，因为界面不友好
+      }
+      if (config.data) {
+        config.data = qs.stringify(config.data)
       }
       this.queue[url] = true
       return config

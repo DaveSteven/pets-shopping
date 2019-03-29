@@ -5,17 +5,21 @@
       <div class="login-panel">
         <Logo></Logo>
         <h2 class="title small-pure-font mb20">您好～欢迎来到<span class="text-primary">萌宠家园</span>。</h2>
-        <Form>
-          <FormItem>
-            <Input placeholder="手机号" />
+        <Form :model="loginForm">
+          <FormItem prop="name">
+            <Input v-model="loginForm.name" placeholder="用户名" />
           </FormItem>
-          <FormItem>
-            <Input placeholder="密码" />
+          <FormItem prop="password">
+            <Input v-model="loginForm.password" type="password" placeholder="密码" />
+          </FormItem>
+          <FormItem prop="phoneNumber" v-if="!isLogin">
+            <Input v-model="loginForm.phoneNumber" placeholder="手机号" />
           </FormItem>
         </Form>
         <div class="mb15"><Checkbox>记住我</Checkbox></div>
         <div class="mb15">
-          <Button type="primary" class="mr10" size="large">登录</Button>
+          <Button v-if="isLogin" type="primary" class="mr10" size="large" @click="handleLogin">登录</Button>
+          <Button v-if="!isLogin" type="primary" class="mr10" size="large" @click="handleRegister">立即注册</Button>
           <Button type="default" size="large" @click="close">取消</Button>
         </div>
         <p><a href="#" class="text-gray f14">忘记密码？</a></p>
@@ -25,8 +29,11 @@
 </template>
 <script>
 import { Form, FormItem, Input, Checkbox, Modal } from 'iview'
-import { mapMutations, mapGetters } from 'vuex'
+import { mapMutations, mapGetters, mapActions } from 'vuex'
 import Logo from '_c/logo'
+
+// 接口
+import { login, register } from '@/api/user'
 
 export default {
   components: {
@@ -39,12 +46,20 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'loginVisible'
-    ])
+      'loginVisible',
+      'loginAction'
+    ]),
+    isLogin () {
+      return this.loginAction === 'login'
+    }
   },
   data () {
     return {
-      visible: this.loginVisible
+      visible: this.loginVisible,
+      loginForm: {
+        name: '',
+        password: ''
+      }
     }
   },
   watch: {
@@ -56,9 +71,28 @@ export default {
     close () {
       this.setLoginVisible(false)
     },
+    handleLogin () {
+      login({
+        ...this.loginForm
+      }).then(() => {
+        this.setLoginVisible(false)
+        this.getUserInformation()
+      })
+    },
+    handleRegister () {
+      register({
+        ...this.loginForm
+      }).then(() => {
+        this.setLoginVisible(false)
+        this.getUserInformation()
+      })
+    },
     ...mapMutations({
       'setLoginVisible': 'SET_LOGIN_VISIBLE'
-    })
+    }),
+    ...mapActions([
+      'getUserInformation'
+    ])
   }
 }
 </script>

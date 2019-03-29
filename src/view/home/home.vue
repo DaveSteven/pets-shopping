@@ -9,15 +9,16 @@
   </div>
 </template>
 <script>
+// 组件
 import BlogArticles from '_c/blog-articles'
 import HomeSlider from '_c/home-slider'
 import Products from '_c/products'
 import TitleBar from '_c/title-bar'
+// 接口
+import { getSupplies, getPets } from '@/api/product'
 // mock
 import blogData from '@/mock/blog'
 import sliderData from '@/mock/slider'
-import petsData from '@/mock/products/pets'
-import suppliesData from '@/mock/products/supplies'
 
 export default {
   components: {
@@ -52,13 +53,13 @@ export default {
       })
     },
     getPetsData () {
-      setTimeout(() => {
-        this.petsData = petsData.data
+      getPets().then(res => {
+        this.petsData = res.data
       })
     },
     getSuppliesData () {
-      setTimeout(() => {
-        this.suppliesData = suppliesData.data
+      getSupplies().then(res => {
+        this.suppliesData = res.data
       })
     }
   }

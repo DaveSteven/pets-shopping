@@ -13,7 +13,7 @@ export function login ({ name, password }) {
   }
   return axios.request({
     url: '/doLogin',
-    method: 'get',
+    method: 'post',
     data
   })
 }
@@ -41,5 +41,16 @@ export function register ({ name, password, head, phoneNumber, email, address })
     url: '/doRegister',
     method: 'post',
     data
+  })
+}
+
+/**
+ * 获取用户信息
+ * @returns {*}
+ */
+export function getUserInfo () {
+  return axios.request({
+    url: '/getUserInfo',
+    method: 'get'
   })
 }

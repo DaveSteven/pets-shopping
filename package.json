@@ -18,6 +18,7 @@
     "less-loader": "^4.1.0",
     "lodash.clonedeep": "^4.5.0",
     "mockjs": "^1.0.1-beta3",
+    "qs": "^6.7.0",
     "v-click-outside-x": "^4.0.1",
     "vue": "^2.6.6",
     "vue-router": "^3.0.2",
