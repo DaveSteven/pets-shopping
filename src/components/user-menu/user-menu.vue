@@ -1,13 +1,22 @@
 <template>
   <div class="user-panel">
-    <Dropdown class="dropdown" @on-click="dropdownClick">
+    <Dropdown v-if="!logined" class="dropdown" @on-click="dropdownClick">
       <span class="tool-btn"><Icon type="user" :size="20"></Icon></span>
       <DropdownMenu slot="list">
         <DropdownItem name="login"><Icon type="login" class="mr5" />登录</DropdownItem>
         <DropdownItem name="register"><Icon type="pencil" class="mr5" />注册</DropdownItem>
       </DropdownMenu>
     </Dropdown>
-    <span v-if="unLogin" class="tool-btn"><Icon type="setting" :size="20"></Icon></span>
+    <div v-if="logined" class="user-info">
+      <span>欢迎回来，{{ user.name }}</span>
+      <Dropdown class="dropdown" @on-click="handleSetting">
+        <span class="tool-btn"><Icon type="setting" :size="20"></Icon></span>
+        <DropdownMenu slot="list">
+          <DropdownItem name="usercenter">用户中心</DropdownItem>
+          <DropdownItem name="logout">退出</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    </div>
   </div>
 </template>
 <script>
@@ -20,14 +29,10 @@ export default {
     DropdownMenu,
     DropdownItem
   },
-  data () {
-    return {
-      unLogin: false
-    }
-  },
   computed: {
     ...mapGetters([
-      'user'
+      'user',
+      'logined'
     ])
   },
   created () {

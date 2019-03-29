@@ -9,7 +9,8 @@ const state = {
     name: ''
   },
   loginVisible: false,
-  loginAction: 'login'
+  loginAction: 'login',
+  logined: false
 }
 
 export default state

@@ -15,6 +15,9 @@ const mutations = {
   },
   [types.SET_USER_NAME] (state, name) {
     state.user.name = name
+  },
+  [types.SET_LOGIN_STATE] (state, flag) {
+    state.logined = flag
   }
 }
 

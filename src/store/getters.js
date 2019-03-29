@@ -22,4 +22,6 @@ export const loginVisible = (state) => state.loginVisible
 
 export const loginAction = (state) => state.loginAction
 
+export const logined = (state) => state.logined
+
 export const user = (state) => state.user

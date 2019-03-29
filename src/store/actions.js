@@ -99,11 +99,14 @@ export const getUserInformation = ({ commit, state }) => {
         const data = res.data
         commit(types.SET_USER_AVATAR, data.head)
         commit(types.SET_USER_NAME, data.name)
+        commit(types.SET_LOGIN_STATE, true)
         resolve(data)
       }).catch(err => {
+        commit(types.SET_LOGIN_STATE, false)
         reject(err)
       })
     } catch (error) {
+      commit(types.SET_LOGIN_STATE, false)
       reject(error)
     }
   })
