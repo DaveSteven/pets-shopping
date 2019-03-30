@@ -48,14 +48,24 @@ export default {
         this.$router.push({
           path: '/user'
         })
+      } else if (type === 'logout') {
+        this.logout()
       }
+    },
+    logout () {
+      this.userLogout().then(() => {
+        this.$router.push({
+          path: '/'
+        })
+      })
     },
     ...mapMutations({
       'setLoginVisible': 'SET_LOGIN_VISIBLE',
       'setLoginAction': 'SET_LOGIN_ACTION'
     }),
     ...mapActions([
-      'getUserInformation'
+      'getUserInformation',
+      'userLogout'
     ])
   }
 }

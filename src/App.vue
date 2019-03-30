@@ -2,7 +2,9 @@
   <div id="app">
     <Header></Header>
     <div class="container">
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </div>
     <Contacts class="mt50"></Contacts>
     <Footer></Footer>

@@ -19,6 +19,17 @@ export function login ({ name, password }) {
 }
 
 /**
+ * 用户登出
+ * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
+ */
+export function logout () {
+  return axios.request({
+    url: '/doLogout',
+    method: 'post'
+  })
+}
+
+/**
  * 用户注册
  * @param name
  * @param password

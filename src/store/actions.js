@@ -1,6 +1,6 @@
 import * as types from './mutation-types'
 import { saveCartList } from 'common/js/catch'
-import { getUserInfo } from '@/api/user'
+import { getUserInfo, logout } from '@/api/user'
 import deepClone from 'lodash.clonedeep'
 
 /**
@@ -109,6 +109,29 @@ export const getUserInformation = ({ commit, state }) => {
     } catch (error) {
       commit(types.SET_LOGIN_STATE, false)
       reject(error)
+    }
+  })
+}
+
+/**
+ * 用户退出登录
+ * @param commit
+ * @param state
+ */
+export const userLogout = ({ commit, state }) => {
+  return new Promise((resolve, reject) => {
+    try {
+      logout().then(() => {
+        commit(types.SET_USER_ID, '')
+        commit(types.SET_USER_AVATAR, '')
+        commit(types.SET_USER_NAME, '')
+        commit(types.SET_LOGIN_STATE, false)
+        resolve('')
+      }).catch(err => {
+        reject(err)
+      })
+    } catch (error) {
+      reject(err)
     }
   })
 }
