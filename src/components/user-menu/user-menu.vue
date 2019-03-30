@@ -8,7 +8,10 @@
       </DropdownMenu>
     </Dropdown>
     <div v-if="logined" class="user-info">
-      <span>欢迎回来，{{ user.name }}</span>
+      <div class="info">
+        <Avatar :src="user.avatar" :width="40"></Avatar>
+        <span>{{ user.name }}</span>
+      </div>
       <Dropdown class="dropdown" @on-click="handleSetting">
         <span class="tool-btn"><Icon type="setting" :size="20"></Icon></span>
         <DropdownMenu slot="list">
@@ -20,6 +23,7 @@
   </div>
 </template>
 <script>
+import Avatar from '_b/avatar'
 import { Dropdown, DropdownMenu, DropdownItem } from 'iview'
 import { mapMutations, mapActions, mapGetters } from 'vuex'
 
@@ -27,7 +31,8 @@ export default {
   components: {
     Dropdown,
     DropdownMenu,
-    DropdownItem
+    DropdownItem,
+    Avatar
   },
   computed: {
     ...mapGetters([
