@@ -1,6 +1,5 @@
 import axios from 'axios'
 import qs from 'qs'
-import { Message } from 'iview'
 
 class HttpRequest {
   constructor (baseUrl = baseURL) {
@@ -39,8 +38,8 @@ class HttpRequest {
       this.destroy(url)
       const { data, status } = res
       if (data.code !== 200) {
-        Message.error(data.msg)
-        return Promise.reject(data)
+        console.log(data.msg)
+        return
       }
       return { ...data, status }
     }, error => {

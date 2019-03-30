@@ -4,7 +4,7 @@
       <Col class="product-item" :span="span" v-for="(good, index) in productList" :key="index">
       <Card :bordered="false">
         <div class="product-container">
-          <div class="cover mb10"><img :src="good.img" alt=""></div>
+          <div class="cover mb10"><img v-lazy="good.img" alt=""></div>
           <div class="name mb5">{{ good.name }}</div>
           <div class="price">¥{{ good.price | decimal }}</div>
           <ProductTools :good="good"></ProductTools>

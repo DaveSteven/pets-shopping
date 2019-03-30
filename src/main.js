@@ -2,12 +2,18 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import VueLazyload from 'vue-lazyload'
 import Icon from './base/icon'
 import { Row, Col, Card, Button, Select, Option } from 'iview'
 
 import './filters'
 import './common/less/iview.less'
 import './common/less/index.less'
+
+Vue.use(VueLazyload, {
+  loading: require('common/image/loading.gif'),
+  error: require('common/image/no-image.png')
+})
 
 Vue.component('Select', Select)
 Vue.component('Option', Option)
