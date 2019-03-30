@@ -26,18 +26,18 @@
     padding: 18px 35px;
   }
 
-  &-dark&-vertical &-item, &-dark&-vertical &-submenu-title{
-    &-active:not(.@{menu-prefix-cls}-submenu){
+  &-dark&-vertical &-item, &-dark&-vertical &-submenu-title {
+    &-active:not(.@{menu-prefix-cls}-submenu) {
       color: @primary-color;
     }
   }
 
-  &-dark&-vertical &-submenu &-item{
-    &:hover{
+  &-dark&-vertical &-submenu &-item {
+    &:hover {
       color: @primary-color;
       background: transparent !important;
     }
-    &-active,&-active:hover{
+    &-active,&-active:hover {
       background: transparent !important;
     }
   }
@@ -61,7 +61,7 @@
 
 // 搜索组件input样式调整
 .search-wrapper {
-  .@{input-prefix-cls}-group{
+  .@{input-prefix-cls}-group {
     &-prepend,
     &-append
     {
@@ -70,6 +70,21 @@
         &-selection {
           background-color: #fff;
           margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+// 用户中心 左侧菜单样式调整
+.user-wrapper {
+  .user-side-menu {
+    .@{menu-prefix-cls} {
+      &-vertical {
+        &.@{menu-prefix-cls}-light {
+          &:after{
+            display: none;
+          }
         }
       }
     }

@@ -85,5 +85,14 @@ export default [
       title: '博客'
     },
     component: () => import('@/view/blog/blog')
+  },
+  {
+    path: '/user',
+    name: 'User',
+    meta: {
+      title: '用户中心',
+      hideInMenu: true
+    },
+    component: () => import('@/view/user/user')
   }
 ]

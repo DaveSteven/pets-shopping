@@ -39,7 +39,7 @@ class HttpRequest {
       const { data, status } = res
       if (data.code !== 200) {
         console.log(data.msg)
-        return
+        return Promise.reject(data.msg)
       }
       return { ...data, status }
     }, error => {

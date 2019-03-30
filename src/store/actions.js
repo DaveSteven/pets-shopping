@@ -95,8 +95,9 @@ export const removeGood = ({ commit, state }, { good }) => {
 export const getUserInformation = ({ commit, state }) => {
   return new Promise((resolve, reject) => {
     try {
-      getUserInfo(state.token).then(res => {
+      getUserInfo().then(res => {
         const data = res.data
+        commit(types.SET_USER_ID, data.id)
         commit(types.SET_USER_AVATAR, data.head)
         commit(types.SET_USER_NAME, data.name)
         commit(types.SET_LOGIN_STATE, true)

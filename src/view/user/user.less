@@ -1,0 +1,29 @@
+.user {
+  &-wrapper {
+    display: flex;
+  }
+
+  &-side-menu {
+    flex: 0 0 240px;
+    margin-right: 10px;
+  }
+
+  &-panel {
+    flex: 1;
+
+    .user-info {
+      display: flex;
+      align-items: center;
+
+      .avatar {
+        margin-right: 10px;
+        img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+        }
+      }
+
+    }
+  }
+}

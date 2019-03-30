@@ -54,3 +54,18 @@ export function getUserInfo () {
     method: 'get'
   })
 }
+
+/**
+ * 获取用户订单
+ * @param userId {Number}
+ * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
+ */
+export function getOrderList ({ userId }) {
+  return axios.request({
+    url: '/getShoppingRecords',
+    method: 'get',
+    params: {
+      userId: userId
+    }
+  })
+}

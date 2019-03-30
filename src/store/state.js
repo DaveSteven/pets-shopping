@@ -4,6 +4,7 @@ import addressData from '@/mock/user/address'
 const state = {
   cartList: getCartList(),
   user: {
+    id: '',
     address: addressData.data,
     avatar: '',
     name: ''

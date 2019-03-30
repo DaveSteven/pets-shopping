@@ -12,7 +12,7 @@
       <Dropdown class="dropdown" @on-click="handleSetting">
         <span class="tool-btn"><Icon type="setting" :size="20"></Icon></span>
         <DropdownMenu slot="list">
-          <DropdownItem name="usercenter">用户中心</DropdownItem>
+          <DropdownItem name="user">用户中心</DropdownItem>
           <DropdownItem name="logout">退出</DropdownItem>
         </DropdownMenu>
       </Dropdown>
@@ -39,9 +39,16 @@ export default {
     this.getUserInformation()
   },
   methods: {
-    dropdownClick (name) {
-      this.setLoginAction(name)
+    dropdownClick (type) {
+      this.setLoginAction(type)
       this.setLoginVisible(true)
+    },
+    handleSetting (type) {
+      if (type === 'user') {
+        this.$router.push({
+          path: '/user'
+        })
+      }
     },
     ...mapMutations({
       'setLoginVisible': 'SET_LOGIN_VISIBLE',
