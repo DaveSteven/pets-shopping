@@ -17,6 +17,6 @@ deploy:                     # 部署脚本
     repo: git@github.com:DaveSteven/pets-shopping.git # 远程仓库地址
     path: /root/web/pets-shopping             # 拉取到服务器某个目录下
     pre-deploy: git fetch --all # 部署前执行
-    post-deploy: yadd && yarn build # 部署后执行
+    post-deploy: yarn && yarn build # 部署后执行
     #env:
     #  NODE_ENV: production
