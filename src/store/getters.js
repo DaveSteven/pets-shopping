@@ -3,8 +3,8 @@ import routes from '@/router/routes'
 
 function getTotal (list) {
   let total = 0
-  list.forEach(good => {
-    total += good.price * good.count
+  list.forEach(goods => {
+    total += goods.price * goods.count
   })
   return total.toFixed(2)
 }

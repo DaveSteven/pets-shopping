@@ -8,17 +8,17 @@
       <div class="cell ops">操作</div>
     </div>
     <div class="shop-cart-list">
-      <div class="good" v-for="(good, index) in cartList" :key="index">
+      <div class="goods" v-for="(goods, index) in cartList" :key="index">
         <div class="cell product">
-          <div class="img"><img :src="good.img" alt=""></div>
-          <div class="name">{{ good.name }}</div>
+          <div class="img"><img :src="goods.img" alt=""></div>
+          <div class="name">{{ goods.name }}</div>
         </div>
-        <div class="cell price">¥{{ good.price | decimal }}</div>
+        <div class="cell price">¥{{ goods.price | decimal }}</div>
         <div class="cell count">
-          <CartControl :good="good"></CartControl>
+          <CartControl :goods="goods"></CartControl>
         </div>
-        <div class="cell total">¥{{ good.price * good.count | decimal }}</div>
-        <div class="cell ops" @click="remove(good)">
+        <div class="cell total">¥{{ goods.price * goods.count | decimal }}</div>
+        <div class="cell ops" @click="remove(goods)">
           <span class="remove">删除</span>
         </div>
       </div>
@@ -42,11 +42,11 @@ export default {
     }
   },
   methods: {
-    remove (good) {
-      this.removeGood({ good })
+    remove (goods) {
+      this.removeGoods({ goods })
     },
     ...mapActions([
-      'removeGood'
+      'removeGoods'
     ])
   }
 }

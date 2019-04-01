@@ -3,7 +3,7 @@
     <BlogArticles :columns="3" :data="blogData" :lines="1" size="small" class="mb5"></BlogArticles>
     <HomeSlider :data="sliderData" class="mb30"></HomeSlider>
     <TitleBar class="mb5" title="今日萌宠"></TitleBar>
-    <Products :columns="4" :lines="2" :data="petsData" class="mb30"></Products>
+    <Products :columns="4" :lines="2" :data="petsData" class="mb30" @select="select"></Products>
     <TitleBar class="mb5" title="萌宠用品"></TitleBar>
     <Products title="萌宠用品" :columns="4" :lines="2" :data="suppliesData"></Products>
   </div>
@@ -60,6 +60,11 @@ export default {
     getSuppliesData () {
       getSupplies().then(res => {
         this.suppliesData = res.data
+      })
+    },
+    select (goods) {
+      this.$router.push({
+        path: `/product/${goods.id}`
       })
     }
   }

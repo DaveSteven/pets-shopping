@@ -94,5 +94,14 @@ export default [
       hideInMenu: true
     },
     component: () => import('@/view/user/user')
+  },
+  {
+    path: '/product/:id',
+    name: 'ProductDetail',
+    meta: {
+      title: '商品详情',
+      hideInMenu: true
+    },
+    component: () => import('@/view/product-detail/product-detail')
   }
 ]

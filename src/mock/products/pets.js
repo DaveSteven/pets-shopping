@@ -33,7 +33,7 @@ const data = Mock.mock({
       '狗'
     ],
     'description|10-50': '商品描述',
-    'good_type': '0'
+    'goods_type': '0'
   }]
 })
 

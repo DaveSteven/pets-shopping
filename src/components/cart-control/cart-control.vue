@@ -16,17 +16,17 @@ export default {
     Input
   },
   props: {
-    good: {
+    goods: {
       type: Object
     }
   },
   data () {
     return {
-      count: this.good.count
+      count: this.goods.count
     }
   },
   watch: {
-    'good.count' (val) {
+    'goods.count' (val) {
       this.count = val
     }
   },
@@ -44,7 +44,7 @@ export default {
         return
       }
       this.addCart({
-        good: this.good
+        goods: this.goods
       })
     },
     decrease () {
@@ -52,7 +52,7 @@ export default {
         return
       }
       this.decreaseCart({
-        good: this.good
+        goods: this.goods
       })
     },
     countOnChange () {
@@ -62,15 +62,15 @@ export default {
       if (this.isMaxCount) {
         this.count = 99
       }
-      this.setGoodCount({
-        good: this.good,
+      this.setGoodsCount({
+        goods: this.goods,
         count: this.count
       })
     },
     ...mapActions([
       'addCart',
       'decreaseCart',
-      'setGoodCount'
+      'setGoodsCount'
     ])
   }
 }

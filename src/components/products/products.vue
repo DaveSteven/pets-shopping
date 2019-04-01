@@ -1,13 +1,13 @@
 <template>
   <div class="products">
     <Row :gutter="5" class="product-list">
-      <Col class="product-item" :span="span" v-for="(good, index) in productList" :key="index">
+      <Col class="product-item" :span="span" v-for="(goods, index) in productList" :key="index">
       <Card :bordered="false">
-        <div class="product-container">
-          <div class="cover mb10"><img v-lazy="good.img" alt=""></div>
-          <div class="name mb5">{{ good.name }}</div>
-          <div class="price">¥{{ good.price | decimal }}</div>
-          <ProductTools :good="good"></ProductTools>
+        <div class="product-container" @click.stop="select(goods)">
+          <div class="cover mb10"><img v-lazy="goods.img" alt=""></div>
+          <div class="name mb5">{{ goods.name }}</div>
+          <div class="price">¥{{ goods.price | decimal }}</div>
+          <ProductTools :goods="goods"></ProductTools>
         </div>
       </Card>
       </Col>
@@ -73,8 +73,8 @@ export default {
     }
   },
   methods: {
-    onClick (type) {
-      console.log(type)
+    select (goods) {
+      this.$emit('select', goods)
     }
   }
 }

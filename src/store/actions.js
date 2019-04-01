@@ -6,12 +6,12 @@ import deepClone from 'lodash.clonedeep'
 /**
  * 寻找目标下标
  * @param list {Array}
- * @param good {Object}
+ * @param goods {Object}
  * @returns {index|number|*}
  */
-function findIndex (list, good) {
+function findIndex (list, goods) {
   return list.findIndex(item => {
-    return item.id === good.id
+    return item.id === goods.id
   })
 }
 
@@ -19,15 +19,15 @@ function findIndex (list, good) {
  * 添加商品到购物车
  * @param commit
  * @param state
- * @param good
+ * @param goods
  */
-export const addCart = ({ commit, state }, { good }) => {
+export const addCart = ({ commit, state }, { goods }) => {
   const cartList = deepClone(state.cartList)
-  let index = findIndex(cartList, good)
+  let index = findIndex(cartList, goods)
   if (index >= 0) {
     cartList[index].count++
   } else {
-    cartList.push({ ...good, count: 1 })
+    cartList.push({ ...goods, count: 1 })
   }
   commit(types.SET_CART_LIST, cartList)
   saveCartList(cartList)
@@ -37,11 +37,11 @@ export const addCart = ({ commit, state }, { good }) => {
  * 减少数量
  * @param commit
  * @param state
- * @param good
+ * @param goods
  */
-export const decreaseCart = ({ commit, state }, { good }) => {
+export const decreaseCart = ({ commit, state }, { goods }) => {
   const cartList = deepClone(state.cartList)
-  let index = findIndex(cartList, good)
+  let index = findIndex(cartList, goods)
   if (index >= 0) {
     const count = cartList[index].count
     if (count >= 0) {
@@ -56,12 +56,12 @@ export const decreaseCart = ({ commit, state }, { good }) => {
  * 添加数量
  * @param commit
  * @param state
- * @param good
+ * @param goods
  * @param count
  */
-export const setGoodCount = ({ commit, state }, { good, count }) => {
+export const setGoodsCount = ({ commit, state }, { goods, count }) => {
   const cartList = deepClone(state.cartList)
-  let index = findIndex(cartList, good)
+  let index = findIndex(cartList, goods)
   if (index >= 0) {
     cartList[index].count = count
   }
@@ -73,11 +73,11 @@ export const setGoodCount = ({ commit, state }, { good, count }) => {
  * 从购物车中删除商品
  * @param commit
  * @param state
- * @param good
+ * @param goods
  */
-export const removeGood = ({ commit, state }, { good }) => {
+export const removeGoods = ({ commit, state }, { goods }) => {
   const cartList = deepClone(state.cartList)
-  let index = findIndex(cartList, good)
+  let index = findIndex(cartList, goods)
   if (index >= 0) {
     cartList.splice(index, 1)
   }

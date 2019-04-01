@@ -13,7 +13,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
   props: {
-    good: {
+    goods: {
       type: Object
     }
   },
@@ -25,7 +25,7 @@ export default {
   methods: {
     addCart (event) {
       this._addCart({
-        good: this.good
+        goods: this.goods
       })
       this.$emit('add', event.target)
     },
