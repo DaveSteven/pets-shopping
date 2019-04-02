@@ -10,7 +10,7 @@
           <Scroll ref="scroll" class="cart-list-wrapper" :data="cartList">
             <ul class="cart-list">
               <li class="cart-item" v-for="(item, index) in cartList" :key="index">
-                <div class="img"><img @load="loadImage" :src="item.img"></div>
+                <div class="img"><img @load="loadImage" v-lazy="item.img"></div>
                 <div class="text">
                   <h5 class="title">{{ item.name }}</h5>
                   <div class="price">

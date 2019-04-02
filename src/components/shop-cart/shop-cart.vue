@@ -10,7 +10,7 @@
     <div class="shop-cart-list">
       <div class="goods" v-for="(goods, index) in cartList" :key="index">
         <div class="cell product">
-          <div class="img"><img :src="goods.img" alt=""></div>
+          <div class="img"><img v-lazy="goods.img" alt=""></div>
           <div class="name">{{ goods.name }}</div>
         </div>
         <div class="cell price">¥{{ goods.price | decimal }}</div>
