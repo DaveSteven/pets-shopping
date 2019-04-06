@@ -8,7 +8,10 @@
       <div class="product-info">
         <h1 class="f20 mb20">{{ product.name }}</h1>
         <p class="price mb20">¥{{ product.price }}</p>
-        <CartControl :goods="product"></CartControl>
+       <div class="mb20">
+         <CartControl :goods="product"></CartControl>
+       </div>
+        <Button type="primary" size="large">加入购物车</Button>
       </div>
     </div>
     <div class="product-desc mb40">
@@ -24,6 +27,7 @@ import { getPet, getPetProduct } from 'common/js/catch'
 import TitleBar from '_c/title-bar'
 import Products from '_c/products'
 import CartControl from '_c/cart-control'
+import { Button } from 'iview'
 
 // 接口
 import { getPets } from '@/api/product'
@@ -32,7 +36,8 @@ export default {
   components: {
     TitleBar,
     Products,
-    CartControl
+    CartControl,
+    Button
   },
   data () {
     return {
