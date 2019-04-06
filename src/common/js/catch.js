@@ -31,12 +31,12 @@ export const getAddress = () => {
  * @returns {string}
  * @constructor
  */
-const PET_KEY = (id) => `__pet${id}__`
+const PET_PREFIX = 'pet'
 export const savePet = (obj) => {
-  storage.session.set(PET_KEY(obj.id), obj)
+  storage.session.set(`__${PET_PREFIX}${obj.id}__`, obj)
 }
 export const getPet = (id) => {
-  return storage.session.get(PET_KEY(id))
+  return storage.session.get(`__${PET_PREFIX}${id}__`)
 }
 
 /**
@@ -45,10 +45,10 @@ export const getPet = (id) => {
  * @returns {string}
  * @constructor
  */
-const PET_PRODUCT_KEY = (id) => `__petProduct${id}__`
+const PET_PRODUCT_PREFIX = 'petProduct'
 export const savePetProduct = (obj) => {
-  storage.session.set(PET_PRODUCT_KEY(obj.id), obj)
+  storage.session.set(`__${PET_PRODUCT_PREFIX}${obj.id}__`, obj)
 }
 export const getPetProduct = (id) => {
-  return storage.session.get(PET_PRODUCT_KEY(id))
+  return storage.session.get(`__${PET_PRODUCT_PREFIX}${id}__`)
 }

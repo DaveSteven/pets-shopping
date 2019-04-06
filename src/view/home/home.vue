@@ -19,6 +19,7 @@ import { getSupplies, getPets } from '@/api/product'
 // mock
 import blogData from '@/mock/blog'
 import sliderData from '@/mock/slider'
+import { savePet } from 'common/js/catch'
 
 export default {
   components: {
@@ -64,8 +65,12 @@ export default {
     },
     select (goods) {
       this.$router.push({
-        path: `/product/${goods.id}`
+        path: `/product/${goods.id}`,
+        query: {
+          type: goods.type
+        }
       })
+      savePet(goods)
     }
   }
 }

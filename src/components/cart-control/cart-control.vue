@@ -27,6 +27,7 @@ export default {
   },
   watch: {
     'goods.count' (val) {
+      console.log(val)
       this.count = val
     }
   },

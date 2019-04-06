@@ -1,0 +1,38 @@
+@import "~common/less/variable";
+
+.product {
+  &-panel {
+    padding: 40px 10px 30px;
+    display: flex;
+    background-color: #fff;
+  }
+
+  &-viewer {
+    flex: 0 0 588px;
+    display: flex;
+
+    .thumb {
+      margin-right: 10px;
+      flex: 0 0 80px;
+    }
+
+    .img {
+      flex: 1;
+    }
+  }
+
+  &-info {
+    padding: 0 100px;
+    flex: 1;
+
+    .price {
+      font-size: @font-size-large-x;
+      color: @primary-color;
+    }
+  }
+
+  &-desc {
+    padding: 40px;
+    background-color: #fff;
+  }
+}
