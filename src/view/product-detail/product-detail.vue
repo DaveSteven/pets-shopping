@@ -6,12 +6,12 @@
         <div class="img"><img v-lazy="product.img" alt=""></div>
       </div>
       <div class="product-info">
-        <h1 class="f20 mb20">{{ product.name }}</h1>
-        <p class="price mb20">¥{{ product.price }}</p>
-        <div class="mb20">
-          <CartControl :goods="product"></CartControl>
+        <h1 class="f20 mb30">{{ product.name }}</h1>
+        <p class="price mb30">¥{{ product.price }}</p>
+        <div class="mb30">
+          <CartControl class="mr5" ref="cartControl" :goods="product" :control-button="false" size="large"></CartControl>
+          <Button type="primary" size="large" @click="addCart">加入购物车</Button>
         </div>
-        <Button type="primary" size="large">加入购物车</Button>
       </div>
     </div>
     <div class="product-desc mb40">
@@ -27,7 +27,7 @@ import { getPet, getPetProduct } from 'common/js/catch'
 import TitleBar from '_c/title-bar'
 import Products from '_c/products'
 import CartControl from '_c/cart-control'
-import { Button } from 'iview'
+import { Button, Message } from 'iview'
 
 // 接口
 import { getPets } from '@/api/product'
@@ -60,6 +60,10 @@ export default {
       getPets().then(res => {
         this.petsData = res.data
       })
+    },
+    addCart () {
+      this.$refs.cartControl.add()
+      Message.success('添加成功！')
     }
   }
 }

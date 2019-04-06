@@ -1,15 +1,16 @@
 <template>
   <div class="cart-control">
-    <span class="opt-btn" :class="{disabled: isOnlyOne}" @click="decrease">&#45;</span>
+    <span v-if="controlButton" class="opt-btn" :class="{disabled: isOnlyOne}" @click="decrease">&#45;</span>
     <span class="count">
-      <Input v-model.number="count" @on-blur="countOnChange" />
+      <Input v-model.number="count" @on-blur="countOnChange" :size="size" />
     </span>
-    <span class="opt-btn" :class="{disabled: isMaxCount}" @click="add">&#43;</span>
+    <span v-if="controlButton" class="opt-btn" :class="{disabled: isMaxCount}" @click="add">&#43;</span>
   </div>
 </template>
 <script>
 import { mapActions } from 'vuex'
 import { Input } from 'iview'
+import { oneOf } from '../../common/js/utils'
 
 export default {
   components: {
@@ -18,6 +19,16 @@ export default {
   props: {
     goods: {
       type: Object
+    },
+    controlButton: {
+      type: Boolean,
+      default: true
+    },
+    size: {
+      validator (value) {
+        return oneOf(value, ['small', 'default', 'large'])
+      },
+      default: 'default'
     }
   },
   data () {
@@ -27,7 +38,6 @@ export default {
   },
   watch: {
     'goods.count' (val) {
-      console.log(val)
       this.count = val
     }
   },
@@ -57,7 +67,7 @@ export default {
       })
     },
     countOnChange () {
-      if (!this.count) {
+      if (!this.count || !this.controlButton) {
         return
       }
       if (this.isMaxCount) {
