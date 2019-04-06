@@ -8,9 +8,9 @@
       <div class="product-info">
         <h1 class="f20 mb20">{{ product.name }}</h1>
         <p class="price mb20">¥{{ product.price }}</p>
-       <div class="mb20">
-         <CartControl :goods="product"></CartControl>
-       </div>
+        <div class="mb20">
+          <CartControl :goods="product"></CartControl>
+        </div>
         <Button type="primary" size="large">加入购物车</Button>
       </div>
     </div>
