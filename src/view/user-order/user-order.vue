@@ -1,6 +1,5 @@
 <template>
   <div>
-    <TitleBar class="mb5" :show-button="false" title="我的订单"/>
     <Card :bordered="false">
       <div v-if="orderList.length">
         <OrderList :data="orderList"></OrderList>
@@ -10,13 +9,11 @@
   </div>
 </template>
 <script>
-import TitleBar from '_c/title-bar'
 import OrderList from '_c/order-list'
 // 相关请求
 import { getOrderList } from '@/api/user'
 export default {
   components: {
-    TitleBar,
     OrderList
   },
   data () {

@@ -105,25 +105,27 @@ export const getUserMenuByRouter = (list) => {
   let res = []
   let map = {}
   forEach(list, item => {
-    let key = item.meta.group.type
-    let obj = {
-      icon: (item.meta && item.meta.icon) || '',
-      name: item.name,
-      meta: item.meta
-    }
-    if (!map[key]) {
-      map[key] = {
-        title: item.meta.group.title,
-        routes: []
+    if (item.meta.group) {
+      let key = item.meta.group.type
+      let obj = {
+        icon: (item.meta && item.meta.icon) || '',
+        name: item.name,
+        meta: item.meta
       }
-      map[key].routes.push(obj)
-    } else {
-      map[key].routes.push(obj)
+      if (!map[key]) {
+        map[key] = {
+          title: item.meta.group.title,
+          routes: []
+        }
+      }
+      if (!item.hideInUserMenu) {
+        map[key].routes.push(obj)
+      }
+      if ((hasChild(item) || (item.meta && item.meta.showAlways))) {
+        obj.children = getUserMenuByRouter(item.children)
+      }
+      if (item.meta && item.meta.href) obj.href = item.meta.href
     }
-    if ((hasChild(item) || (item.meta && item.meta.showAlways))) {
-      obj.children = getUserMenuByRouter(item.children)
-    }
-    if (item.meta && item.meta.href) obj.href = item.meta.href
   })
   for (let i in map) {
     res.push(map[i])

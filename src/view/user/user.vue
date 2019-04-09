@@ -5,6 +5,7 @@
       <SideMenu />
     </div>
     <div class="user-panel">
+      <TitleBar class="mb5" :show-button="false" :title="menuTitle"/>
       <router-view />
     </div>
   </div>
@@ -18,6 +19,11 @@ export default {
   components: {
     TitleBar,
     SideMenu
+  },
+  computed: {
+    menuTitle () {
+      return this.$route.meta.group.title
+    }
   },
   beforeRouteEnter (to, from, next) {
     store.commit('SET_USER_MENU_ACTIVE_NAME', to.name)
