@@ -1,3 +1,5 @@
+import userRoutes from './userRoutes'
+
 export default [
   {
     path: '/',
@@ -89,11 +91,13 @@ export default [
   {
     path: '/user',
     name: 'User',
+    redirect: '/user/order',
     meta: {
       title: '用户中心',
       hideInMenu: true
     },
-    component: () => import('@/view/user/user')
+    component: () => import('@/view/user/user'),
+    children: userRoutes
   },
   {
     path: '/product/:id',

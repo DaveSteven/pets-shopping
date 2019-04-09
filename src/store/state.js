@@ -11,7 +11,8 @@ const state = {
   },
   loginVisible: false,
   loginAction: 'login',
-  logined: false
+  logined: false,
+  userMenuActiveName: ''
 }
 
 export default state

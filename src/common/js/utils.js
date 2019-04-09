@@ -98,6 +98,40 @@ export const getMenuByRouter = (list) => {
 }
 
 /**
+ * @param {Array} list 通过路由列表得到用户列表菜单
+ * @returns {Array}
+ */
+export const getUserMenuByRouter = (list) => {
+  let res = []
+  let map = {}
+  forEach(list, item => {
+    let key = item.meta.group.type
+    let obj = {
+      icon: (item.meta && item.meta.icon) || '',
+      name: item.name,
+      meta: item.meta
+    }
+    if (!map[key]) {
+      map[key] = {
+        title: item.meta.group.title,
+        routes: []
+      }
+      map[key].routes.push(obj)
+    } else {
+      map[key].routes.push(obj)
+    }
+    if ((hasChild(item) || (item.meta && item.meta.showAlways))) {
+      obj.children = getUserMenuByRouter(item.children)
+    }
+    if (item.meta && item.meta.href) obj.href = item.meta.href
+  })
+  for (let i in map) {
+    res.push(map[i])
+  }
+  return res
+}
+
+/**
  * @param {Object} item 判断是否有子元素，导航用
  * @returns {*|boolean}
  */

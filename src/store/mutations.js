@@ -21,6 +21,9 @@ const mutations = {
   },
   [types.SET_LOGIN_STATE] (state, flag) {
     state.logined = flag
+  },
+  [types.SET_USER_MENU_ACTIVE_NAME] (state, name) {
+    state.userMenuActiveName = name
   }
 }
 
