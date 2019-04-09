@@ -1,6 +1,10 @@
 <template>
   <div class="mini-cart">
-    <Dropdown placement="bottom-end" trigger="click" @on-visible-change="visibleChange">
+    <Dropdown
+      placement="bottom-end"
+      trigger="hover"
+      @on-visible-change="visibleChange"
+    >
       <div class="mini-cart-btn">
         <span><Icon type="cart" :size="14" />购物车</span>
         <Icon type="down-arrow" :size="12" />
@@ -61,7 +65,8 @@ export default {
   },
   data () {
     return {
-      checkLoaded: false
+      checkLoaded: false,
+      menuVisible: false
     }
   },
   methods: {
@@ -70,7 +75,15 @@ export default {
         path: '/cart'
       })
     },
-    checkout () {},
+    checkout () {
+      this.$router.push({
+        path: '/checkout'
+      })
+    },
+    menuClick () {
+      console.log('1')
+      this.menuVisible = !this.menuVisible
+    },
     visibleChange (visible) {
       if (visible) {
         this.addScrollEffect()
