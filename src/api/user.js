@@ -13,10 +13,8 @@ export function login ({ name, password }) {
   }
   return axios.request({
     url: '/doLogin',
-    method: 'get',
-    params: {
-      ...data
-    }
+    method: 'post',
+    data
   })
 }
 

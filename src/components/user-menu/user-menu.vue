@@ -9,7 +9,7 @@
     </Dropdown>
     <div v-if="logined" class="user-info">
       <div class="info">
-        <Avatar class="mb5" :src="user.avatar" :width="40"></Avatar>
+        <Avatar class="mb5 mr5" :src="user.avatar" :width="40"></Avatar>
         <span>{{ user.name }}</span>
       </div>
       <Dropdown class="dropdown" @on-click="handleSetting">
