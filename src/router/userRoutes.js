@@ -25,18 +25,21 @@ export default [
       },
       hideInMenu: true
     },
-    component: () => import('@/view/user-blog/user-blog'),
-    children: [
-      {
-        path: `${ROUTE_PATH_PREFIX}/blog/add`,
-        name: 'addBlog',
-        meta: {
-          title: '添加文章'
-        },
-        hideInMenu: true,
-        hideInUserMenu: true
+    component: () => import('@/view/user-blog/user-blog')
+  },
+  {
+    path: `${ROUTE_PATH_PREFIX}/blog/add`,
+    name: 'addBlog',
+    meta: {
+      title: '添加文章',
+      group: {
+        type: 'blog',
+        title: '博客'
       }
-    ]
+    },
+    hideInMenu: true,
+    hideInUserMenu: true,
+    component: () => import('@/view/add-blog/add-blog')
   },
   {
     path: `${ROUTE_PATH_PREFIX}/info`,

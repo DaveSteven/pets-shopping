@@ -2,7 +2,7 @@
   <div>
     <Card :bordered="false">
       <div v-if="orderList.length">
-        <OrderList :data="orderList"></OrderList>
+        <OrderList :data="orderList" />
       </div>
       <div class="p10 f14" v-else>暂无订单哦～</div>
     </Card>

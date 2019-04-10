@@ -22,7 +22,7 @@ export default {
   },
   computed: {
     menuTitle () {
-      return this.$route.meta.group.title
+      return this.$route.meta.title
     }
   },
   beforeRouteEnter (to, from, next) {
