@@ -26,7 +26,6 @@ export default {
     }
   },
   beforeRouteEnter (to, from, next) {
-    console.log(to)
     store.commit('SET_USER_MENU_ACTIVE_NAME', to.meta.parentName || to.name)
     next()
   }
