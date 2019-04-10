@@ -35,7 +35,8 @@ export default [
       group: {
         type: 'blog',
         title: '博客'
-      }
+      },
+      parentName: 'userBlog'
     },
     hideInMenu: true,
     hideInUserMenu: true,

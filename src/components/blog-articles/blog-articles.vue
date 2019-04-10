@@ -4,7 +4,7 @@
       <Card :bordered="false">
         <div class="blog-item" :class="itemClass">
           <div class="cover mb5">
-            <img :src="item.cover" alt="">
+            <img :src="item.img" alt="">
           </div>
           <div class="content">
             <span class="datetime">{{ item.time | getRelativeTime }}</span>
@@ -14,7 +14,7 @@
               <span class="ml5 mr5 text-gray">|</span>
               <span>评论数：<i class="text-primary text-hover-underline">{{ item.comments }}</i></span>
             </p>
-            <p class="text">{{ item.content }}</p>
+            <p class="text" v-html="item.content"></p>
           </div>
         </div>
       </Card>

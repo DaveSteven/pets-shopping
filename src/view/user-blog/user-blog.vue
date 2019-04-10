@@ -6,12 +6,22 @@
         <p><a href="javascript:;" @click="addArticle">去发表</a></p>
       </div>
     </Card>
+    <BlogArticles
+      v-show="articleList.length"
+      :data="articleList"
+      :columns="2"
+      size="small"
+    ></BlogArticles>
   </div>
 </template>
 <script>
 import { getArticlesByUser } from '@/api/blog'
+import BlogArticles from '_c/blog-articles'
 
 export default {
+  components: {
+    BlogArticles
+  },
   data () {
     return {
       articleList: []
