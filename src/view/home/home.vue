@@ -1,6 +1,6 @@
 <template>
   <div>
-    <BlogArticles :columns="3" :data="blogData" :lines="1" size="small" class="mb5"></BlogArticles>
+    <BlogArticles :columns="3" :data="blogData" :lines="1" size="small" class="mb5" @select="selectBlog"></BlogArticles>
     <HomeSlider :data="sliderData" class="mb30"></HomeSlider>
     <TitleBar class="mb5" title="今日萌宠"></TitleBar>
     <Products :columns="4" :lines="2" :data="petsData" class="mb30" @select="select"></Products>
@@ -19,7 +19,7 @@ import { getSupplies, getPets } from '@/api/product'
 // mock
 import blogData from '@/mock/blog'
 import sliderData from '@/mock/slider'
-import { savePet } from 'common/js/catch'
+import { savePet, saveBlogData } from 'common/js/catch'
 
 export default {
   components: {
@@ -71,6 +71,12 @@ export default {
         }
       })
       savePet(goods)
+    },
+    selectBlog (blog) {
+      saveBlogData(blog.id, blog)
+      this.$router.push({
+        path: `/blog/${blog.id}`
+      })
     }
   }
 }

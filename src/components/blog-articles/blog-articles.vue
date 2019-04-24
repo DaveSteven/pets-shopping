@@ -4,7 +4,7 @@
       <Card :bordered="false">
         <div class="blog-item" :class="itemClass">
           <div class="cover mb5">
-            <img :src="item.img" alt="">
+            <img v-lazy="item.img" alt="">
           </div>
           <div class="content">
             <span class="datetime">{{ item.time | getRelativeTime }}</span>

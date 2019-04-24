@@ -9,7 +9,7 @@ import TitleBar from '_c/title-bar'
 import BlogArticles from '_c/blog-articles'
 
 import blogData from '@/mock/blog'
-import { saveBlogData } from '../../common/js/catch'
+import { saveBlogData } from 'common/js/catch'
 
 export default {
   components: {
