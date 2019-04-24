@@ -11,12 +11,14 @@
       :data="articleList"
       :columns="2"
       size="small"
+      @select="select"
     ></BlogArticles>
   </div>
 </template>
 <script>
 import { getArticlesByUser } from '@/api/blog'
 import BlogArticles from '_c/blog-articles'
+import { saveBlogData } from 'common/js/catch'
 
 export default {
   components: {
@@ -39,6 +41,12 @@ export default {
     addArticle () {
       this.$router.push({
         path: '/user/blog/add'
+      })
+    },
+    select (data) {
+      saveBlogData(`${data.id}`, data)
+      this.$router.push({
+        path: `/blog/${data.id}`
       })
     }
   }

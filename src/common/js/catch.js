@@ -52,3 +52,17 @@ export const savePetProduct = (obj) => {
 export const getPetProduct = (id) => {
   return storage.session.get(`__${PET_PRODUCT_PREFIX}${id}__`)
 }
+
+/**
+ * 存取数据
+ * @param key
+ * @param obj
+ */
+const BLOG_PREFIX = 'blog'
+export const saveBlogData = (id, obj) => {
+  storage.session.set(`__${BLOG_PREFIX}${id}__`, obj)
+}
+
+export const getBlogData = (id, obj) => {
+  return storage.session.get(`__${BLOG_PREFIX}${id}__`, {})
+}

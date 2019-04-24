@@ -89,6 +89,15 @@ export default [
     component: () => import('@/view/blog/blog')
   },
   {
+    path: '/blog/:id',
+    name: 'BlogDetail',
+    meta: {
+      title: '博文',
+      hideInMenu: true
+    },
+    component: () => import('@/view/blog-detail/blog-detail')
+  },
+  {
     path: '/user',
     name: 'User',
     redirect: '/user/order',

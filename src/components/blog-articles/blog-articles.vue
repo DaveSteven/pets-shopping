@@ -8,7 +8,7 @@
           </div>
           <div class="content">
             <span class="datetime">{{ item.time | getRelativeTime }}</span>
-            <h3 class="title">{{ item.title }}</h3>
+            <h3 class="title" @click.stop="select(item)">{{ item.title }}</h3>
             <p class="info">
               <span>作者：<i class="text-primary text-hover-underline">{{ item.user_name }}</i></span>
               <span class="ml5 mr5 text-gray">|</span>
@@ -64,6 +64,11 @@ export default {
   watch: {
     data (val) {
       this.blogList = this.sliceData(val)
+    }
+  },
+  methods: {
+    select (data) {
+      this.$emit('select', data)
     }
   },
   data () {
