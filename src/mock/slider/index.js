@@ -1,9 +1,11 @@
 import Mock from 'mockjs'
-const Random = Mock.Random
 const data = Mock.mock({
-  'data|1-5': [{
+  'data': [{
     'id|+1': 1,
-    'picUrl': Random.image('1170x600', Random.color())
+    'picUrl': 'http://pp5v53szm.bkt.clouddn.com/banner2.png'
+  }, {
+    'id|+1': 2,
+    'picUrl': 'http://pp5v53szm.bkt.clouddn.com/banner1.png'
   }]
 })
 
