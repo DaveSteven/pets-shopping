@@ -118,13 +118,12 @@ export const getUserMenuByRouter = (list) => {
           routes: []
         }
       }
-      if (!item.hideInMenu) {
+      if (!item.meta && !item.meta.hideInMenu) {
         map[key].routes.push(obj)
       }
       if ((hasChild(item) || (item.meta && item.meta.showAlways))) {
         obj.children = getUserMenuByRouter(item.children)
       }
-      if (item.meta && item.meta.href) obj.href = item.meta.href
     }
   })
   for (let i in map) {
