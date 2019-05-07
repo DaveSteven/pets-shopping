@@ -9,8 +9,7 @@ export default [
       group: {
         type: 'order',
         title: '订单中心'
-      },
-      hideInMenu: true
+      }
     },
     component: () => import('@/view/user-order/user-order')
   },
@@ -22,8 +21,7 @@ export default [
       group: {
         type: 'blog',
         title: '帖子'
-      },
-      hideInMenu: true
+      }
     },
     component: () => import('@/view/user-blog/user-blog')
   },
@@ -49,8 +47,7 @@ export default [
       group: {
         type: 'setting',
         title: '设置'
-      },
-      hideInMenu: true
+      }
     }
   },
   {
@@ -61,8 +58,7 @@ export default [
       group: {
         type: 'setting',
         title: '设置'
-      },
-      hideInMenu: true
+      }
     }
   }
 ]

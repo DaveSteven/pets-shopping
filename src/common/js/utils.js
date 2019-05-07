@@ -118,7 +118,7 @@ export const getUserMenuByRouter = (list) => {
           routes: []
         }
       }
-      if (!item.hideInUserMenu) {
+      if (!item.hideInMenu) {
         map[key].routes.push(obj)
       }
       if ((hasChild(item) || (item.meta && item.meta.showAlways))) {
