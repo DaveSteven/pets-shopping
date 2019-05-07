@@ -1,5 +1,5 @@
 <template>
-  <Modal v-model="visible" :footer-hide="true" :closable="false" @on-cancel="close">
+  <Modal v-model="visible" :footer-hide="true" :closable="false" :mask-closable="false" @on-cancel="close">
     <div class="login-body">
       <span class="modal-close-btn" @click="close"><Icon type="close"></Icon></span>
       <div class="login-panel">
@@ -85,11 +85,6 @@ export default {
       }).then(() => {
         this.setLoginVisible(false)
         Message.success('注册成功')
-        this.$nextTick(function () {
-          this.setLoginAction('login')
-          this.setLoginVisible(true)
-          this.getUserInformation()
-        })
       })
     },
     ...mapMutations({

@@ -45,7 +45,7 @@ export default {
   data () {
     return {
       action: 'https://upload-z2.qiniup.com',
-      bucketUrl: 'http://pp5v53szm.bkt.clouddn.com/',
+      bucketUrl: 'http://pets.shandongbojun.com/',
       uploadData: {
         token: ''
       },

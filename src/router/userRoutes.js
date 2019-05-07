@@ -36,10 +36,9 @@ export default [
         type: 'blog',
         title: '帖子'
       },
-      parentName: 'userBlog'
+      parentName: 'userBlog',
+      hideInMenu: true
     },
-    hideInMenu: true,
-    // hideInUserMenu: true,
     component: () => import('@/view/add-blog/add-blog')
   },
   {

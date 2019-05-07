@@ -66,3 +66,16 @@ export const saveBlogData = (id, obj) => {
 export const getBlogData = (id, obj) => {
   return storage.session.get(`__${BLOG_PREFIX}${id}__`, {})
 }
+
+/**
+ * 存储登录状态
+ * @type {string}
+ */
+const LOGIN_STATE = '__loginState__'
+export const saveLoginState = (state) => {
+  storage.session.set(LOGIN_STATE, state)
+}
+
+export const getLoginState = (state) => {
+  return storage.session.get(LOGIN_STATE, false)
+}

@@ -1,4 +1,4 @@
-import { getCartList } from 'common/js/catch'
+import { getCartList, getLoginState } from 'common/js/catch'
 import addressData from '@/mock/user/address'
 
 const state = {
@@ -11,7 +11,7 @@ const state = {
   },
   loginVisible: false,
   loginAction: 'login',
-  logined: false,
+  logined: getLoginState(),
   userMenuActiveName: ''
 }
 

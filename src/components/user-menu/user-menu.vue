@@ -30,7 +30,6 @@
 import Avatar from '_b/avatar'
 import { Dropdown, DropdownMenu, DropdownItem } from 'iview'
 import { mapMutations, mapActions, mapGetters } from 'vuex'
-import { debug } from 'util'
 
 export default {
   props: ['isRouterActive'],
@@ -47,7 +46,9 @@ export default {
     ])
   },
   created () {
-    this.getUserInformation()
+    if (this.logined) {
+      this.getUserInformation()
+    }
   },
   methods: {
     dropdownClick (type) {
@@ -65,10 +66,7 @@ export default {
     },
     logout () {
       this.userLogout().then(() => {
-        // this.$router.push({
-        //   path: '/'
-        // })
-        this.$emit('update:isRouterActive', false)
+        console.log('退出成功')
       })
     },
     ...mapMutations({

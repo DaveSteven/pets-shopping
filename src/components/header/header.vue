@@ -7,7 +7,7 @@
           <Logo class="mr30"></Logo>
           <Search class="mr70"></Search>
           <MiniCart></MiniCart>
-          <UserMenu :isRouterActive.sync="isRouterActive" v-if="isRouterActive"></UserMenu>
+          <UserMenu></UserMenu>
         </header>
       </div>
     </div>
@@ -32,21 +32,7 @@ export default {
   },
   data () {
     return {
-      isFixed: false,
-      isRouterActive: true
-    }
-  },
-  watch: {
-    isRouterActive: {
-      handler (newVal) {
-        if (!newVal) {
-          this.$nextTick(function () {
-            this.isRouterActive = true
-            Message.suucess('退出成功')
-          })
-        }
-      },
-      deep: true
+      isFixed: false
     }
   },
   methods: {
