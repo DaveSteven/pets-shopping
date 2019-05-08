@@ -10,7 +10,7 @@
         <Icon type="down-arrow" :size="12" />
       </div>
       <DropdownMenu class="mini-cart-drop_list" ref="drop" slot="list">
-        <template v-if="cartList.length">
+        <template v-if="cartList.length && logined">
           <Scroll ref="scroll" class="cart-list-wrapper" :data="cartList">
             <ul class="cart-list">
               <li class="cart-item" v-for="(item, index) in cartList" :key="index">
@@ -33,7 +33,7 @@
         <div v-else class="text-primary text-bold">购物车是空的～</div>
       </DropdownMenu>
     </Dropdown>
-    <div class="mini-cart-num">{{ totalCount }}</div>
+    <div class="mini-cart-num">{{ logined ? totalCount : 0 }}</div>
   </div>
 </template>
 <script>
@@ -51,7 +51,8 @@ export default {
   mixins: [ ScrollbarMixins ],
   computed: {
     ...mapGetters([
-      'cart'
+      'cart',
+      'logined'
     ]),
     cartList () {
       return this.cart.list
@@ -87,6 +88,9 @@ export default {
     visibleChange (visible) {
       if (visible) {
         this.addScrollEffect()
+        if (!this.$refs.scroll) {
+          return
+        }
         // 每次打开之后要重新计算scroll，不然不会滚动
         this.$nextTick(() => {
           this.$refs.scroll.refresh()
