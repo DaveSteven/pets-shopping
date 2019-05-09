@@ -18,7 +18,12 @@ export default {
       addArticle({
         ...data
       }).then(res => {
-        console.log(res)
+        this.$Message.success('发表成功！')
+        setTimeout(() => {
+          this.$router.push({
+            path: '/user/blog'
+          })
+        }, 500)
       })
     }
   }
