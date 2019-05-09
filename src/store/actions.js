@@ -1,5 +1,5 @@
 import * as types from './mutation-types'
-import { saveCartList, saveLoginState } from 'common/js/catch'
+import { saveCartList, saveLoginState, deleteLoginState } from 'common/js/catch'
 import { getUserInfo, logout } from '@/api/user'
 import deepClone from 'lodash.clonedeep'
 
@@ -134,7 +134,8 @@ export const userLogout = ({ commit, state }) => {
         commit(types.SET_USER_AVATAR, '')
         commit(types.SET_USER_NAME, '')
         commit(types.SET_LOGIN_STATE, false)
-        resolve('')
+        deleteLoginState()
+        resolve('success')
       }).catch((err) => {
         reject(err)
       })
