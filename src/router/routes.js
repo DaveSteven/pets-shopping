@@ -125,5 +125,14 @@ export default [
       hideInMenu: true
     },
     component: () => import('@/view/search-result/index')
+  },
+  {
+    path: '/checkoutResult',
+    name: 'CheckoutResult',
+    meta: {
+      title: '下单结果',
+      hideInMenu: true
+    },
+    component: () => import('@/view/checkout-result/checkout-result')
   }
 ]

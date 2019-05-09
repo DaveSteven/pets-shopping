@@ -106,6 +106,9 @@ export default {
         userId: this.user.id
       }).then(res => {
         Message.success('下单成功！')
+        this.$router.push({
+          path: '/checkoutResult'
+        })
         console.log(res)
       })
     },
