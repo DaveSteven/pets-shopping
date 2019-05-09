@@ -66,7 +66,9 @@ export default {
     },
     logout () {
       this.userLogout().then(() => {
-        console.log('退出成功')
+        this.$router.push({
+          path: '/'
+        })
       })
     },
     ...mapMutations({
