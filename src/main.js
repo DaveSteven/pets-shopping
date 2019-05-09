@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import VueLazyload from 'vue-lazyload'
 import Icon from './base/icon'
-import { Row, Col, Card, Button, Select, Option, Message } from 'iview'
+import { Row, Col, Card, Button, Select, Option } from 'iview'
 
 import './filters'
 import './common/less/iview.less'
