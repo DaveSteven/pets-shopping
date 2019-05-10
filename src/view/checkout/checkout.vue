@@ -115,9 +115,12 @@ export default {
       this.selectedAddress = data
       saveAddress(data)
     },
-    ...mapActions({
-      clearCart
-    })
+    // ...mapActions({
+    //   clearCart
+    // })
+    ...mapActions([
+      'clearCart'
+    ])
   }
 }
 </script>

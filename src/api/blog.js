@@ -1,7 +1,7 @@
 import axios from '@/libs/api.request'
 
 /**
- * 获取博客文章
+ * 获取论坛帖子文章
  * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
  */
 export function getArticles () {

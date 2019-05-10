@@ -37,8 +37,9 @@
 import TitleBar from '_c/title-bar'
 import ShopCart from '_c/shop-cart'
 import Products from '_c/products'
-import petsData from '@/mock/products/pets'
+// import petsData from '@/mock/products/pets'
 import { mapGetters } from 'vuex'
+import { getPets } from '@/api/product'
 
 export default {
   components: {
@@ -64,9 +65,14 @@ export default {
   },
   methods: {
     getProduct () {
-      setTimeout(() => {
-        this.petsList = petsData.data
-      }, 100)
+      getPets().then(res => {
+        debugger
+        if (res.data.length) {
+          this.petsList.push(res.data[0])
+          this.petsList.push(res.data[1])
+        }
+        debugger
+      })
     },
     checkout () {
       this.$router.push({
