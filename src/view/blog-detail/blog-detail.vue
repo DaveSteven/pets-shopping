@@ -67,7 +67,7 @@ export default {
       addComment(this.post_id, this.comment).then(res => {
         if (res.code === 200) {
           Message.success('上传成功')
-          getComments(this.post_id)
+          this.getComments(this.post_id)
         }
       })
     }
