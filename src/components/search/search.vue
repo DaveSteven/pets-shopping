@@ -41,6 +41,7 @@ export default {
   },
   methods: {
     search () {
+      this.$emit('search')
       EventHub.$emit('search', this.type, this.searchValue)
     }
   }

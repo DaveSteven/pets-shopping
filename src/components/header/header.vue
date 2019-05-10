@@ -41,11 +41,7 @@ export default {
     },
     search (type, value) {
       this.$router.push({
-        path: '/searchDetail',
-        query: {
-          type,
-          value
-        }
+        path: '/searchDetail'
       })
     }
   }

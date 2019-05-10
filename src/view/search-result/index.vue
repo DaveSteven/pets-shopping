@@ -32,15 +32,8 @@ export default {
       suppliesData: []
     }
   },
-  watch: {
-    '$route' (route) {
-      console.log(route)
-      this.value = route.query.value
-      this.type = route.query.type
-      this.fetchData()
-    }
-  },
   created () {
+    this.fetchData()
     EventHub.$on('search', (type, value) => {
       this.fetchData(type, value)
     })
