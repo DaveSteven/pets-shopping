@@ -7,7 +7,7 @@
   </div>
   <div v-else>
     <Card :bordered="false">
-      <p class="f20 p15 text-center">没有这类商品哦，要不要换个关键词再查一下呢</p>
+      <p class="f20 p15 text-center">努力加载中......</p>
     </Card>
   </div>
 </template>
