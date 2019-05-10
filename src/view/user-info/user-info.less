@@ -1,0 +1,50 @@
+@import "~common/less/variable";
+
+
+.login-panel {
+  padding: 20px;
+  .title {
+    font-size: @font-size-large;
+  }
+}
+
+.user_info {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 3px;
+  p {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    color: #4bb048;
+  }
+  button {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -40px;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  right: 20px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: @primary-color;
+  border-radius: @border-radius-value;
+  border: 1px solid @dark-primary-color;
+  cursor: pointer;
+  transition: all @animation-time @animation-timing-function;
+
+  &:hover {
+    background-color: @dark-primary-color;
+  }
+
+  .iconfont {
+    color: #fff;
+  }
+}
+

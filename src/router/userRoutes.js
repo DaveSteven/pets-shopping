@@ -47,13 +47,15 @@ export default [
         type: 'setting',
         title: '设置'
       }
-    }
+    },
+    component: () => import('@/view/user-info')
   },
   {
     path: `${ROUTE_PATH_PREFIX}/avatar`,
     name: 'userAvatar',
     meta: {
       title: '用户头像',
+      hideInMenu: true,
       group: {
         type: 'setting',
         title: '设置'

@@ -67,10 +67,24 @@ export function getUserInfo () {
 }
 
 /**
+ * 修改用户信息
+ * @returns {*}
+ */
+export function modifyUserInfo (user) {
+  debugger
+  return axios.request({
+    url: '/doUpdate',
+    method: 'post',
+    data: user
+  })
+}
+
+/**
  * 通过id获取用户信息
  * @returns {*}
  */
 export function getUserById (id) {
+  debugger
   const params = {
     id
   }
