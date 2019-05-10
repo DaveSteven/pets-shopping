@@ -56,13 +56,11 @@ export default {
     },
     getPetsData () {
       getPetsByKeyWord(this.value).then(res => {
-        debugger
         this.petsData = res.data
       })
     },
     getSuppliesData () {
       getSuppliesByKeyWord(this.value).then(res => {
-        debugger
         this.suppliesData = res.data
       })
     },

@@ -66,12 +66,10 @@ export default {
   methods: {
     getProduct () {
       getPets().then(res => {
-        debugger
         if (res.data.length) {
           this.petsList.push(res.data[0])
           this.petsList.push(res.data[1])
         }
-        debugger
       })
     },
     checkout () {

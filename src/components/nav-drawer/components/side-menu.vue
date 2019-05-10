@@ -42,7 +42,16 @@ export default {
   methods: {
     select (name) {
       this.$emit('select')
-      this.$router.push({ name })
+      if (name === 'Home' || name === 'Blog') {
+        this.$router.push({ name })
+      } else {
+        this.$router.push({
+          path: `/pet/` + name,
+          query: {
+            type: name
+          }
+        })
+      }
     }
   }
 }

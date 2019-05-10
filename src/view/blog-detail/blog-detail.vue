@@ -15,7 +15,7 @@
     </Card>
     <div class = "mt5 commentdiv">
       <span style="display:block;color:#999">在这里发表你的看法~</span>
-      <input class="mt10 mb5 comment-input" v-model="comment" type="text"></input>
+      <input class="mt10 mb5 comment-input" v-model="comment" type="text"/>
       <button type="submit" @click="postComment()" class="ivu-btn ivu-btn-primary fr">发表评论</button>
     </div>
     <CommentForm class="mb20" :columns="1" :data="comments" :lines="1"></CommentForm>
@@ -63,7 +63,6 @@ export default {
       })
     },
     postComment () {
-      debugger
       addComment(this.post_id, this.comment).then(res => {
         if (res.code === 200) {
           Message.success('上传成功')

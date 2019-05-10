@@ -73,7 +73,6 @@ export function getCommentList (postId) {
  * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
  */
 export function addComment (postId, content) {
-  debugger
   const data = {
     'post_id': postId,
     content

@@ -46,7 +46,6 @@ export default {
       })
     },
     handleModify () {
-      debugger
       modifyUserInfo(this.user).then(res => {
         Message.success('修改成功')
         this.getUser()

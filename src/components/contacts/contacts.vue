@@ -22,7 +22,7 @@
           <Icon type="address"></Icon>
         </span>
             <h4 class="title">地址</h4>
-            <p class="text">山东财经大学燕山小区</p>
+            <p class="text">山东财经大学</p>
           </div>
         </div>
       </div>

@@ -71,7 +71,6 @@ export function getUserInfo () {
  * @returns {*}
  */
 export function modifyUserInfo (user) {
-  debugger
   return axios.request({
     url: '/doUpdate',
     method: 'post',
@@ -84,7 +83,6 @@ export function modifyUserInfo (user) {
  * @returns {*}
  */
 export function getUserById (id) {
-  debugger
   const params = {
     id
   }

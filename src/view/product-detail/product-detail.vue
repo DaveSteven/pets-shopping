@@ -24,7 +24,7 @@
       <span>{{ product.description }}</span>
     </div>
     <TitleBar class="mb5" title="你可能喜欢..." :show-button="false" />
-    <Products :columns="4" :lines="1" :data="petsData" />
+    <Products :columns="2" :lines="1" :data="petsData" />
   </div>
 </template>
 <script>
@@ -54,6 +54,7 @@ export default {
   },
   created () {
     this.getDetail()
+    this.getProduct()
   },
   watch: {
     '$route' (to, from) {
@@ -73,6 +74,14 @@ export default {
     addCart () {
       this.$refs.cartControl.add()
       Message.success('添加成功！')
+    },
+    getProduct () {
+      getPets().then(res => {
+        if (res.data.length) {
+          this.petsData.push(res.data[0])
+          this.petsData.push(res.data[1])
+        }
+      })
     }
   }
 }

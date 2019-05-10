@@ -1,7 +1,7 @@
 <template>
   <Row :gutter="5" class="blog-list-wrapper">
     <Col class="mb5" :span="span" v-for="(item, index) in blogList" :key="index">
-      <Card :bordered="false">
+      <Card :bordered="false" class="blogCard">
         <div class="blog-item" :class="itemClass">
           <div class="cover mb5">
             <img v-lazy="item.img" alt="">
