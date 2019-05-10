@@ -8,8 +8,13 @@ const CART_KEY = '__cartList__'
 export const saveCartList = (list) => {
   storage.session.set(CART_KEY, list)
 }
+
 export const getCartList = () => {
   return storage.session.get(CART_KEY, [])
+}
+
+export const removeCartList = () => {
+  return storage.session.remove(CART_KEY)
 }
 
 /**

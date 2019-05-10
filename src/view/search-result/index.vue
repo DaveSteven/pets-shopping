@@ -5,8 +5,10 @@
     <TitleBar v-if="suppliesData.length" class="mb5" title="萌宠用品"></TitleBar>
     <Products v-if="suppliesData.length" title="萌宠用品" :columns="4" :lines="2" :data="suppliesData" @select="select"></Products>
   </div>
-  <div v-else class="f20 m15">
-    <p>没有这类商品哦，要不要换个关键词再查一下呢</p>
+  <div v-else>
+    <Card :bordered="false">
+      <p class="f20 p15 text-center">没有这类商品哦，要不要换个关键词再查一下呢</p>
+    </Card>
   </div>
 </template>
 <script>
@@ -15,9 +17,9 @@ import Products from '_c/products'
 import TitleBar from '_c/title-bar'
 // 接口
 import { getSuppliesByKeyWord, getPetsByKeyWord } from '@/api/product'
-// mock
+
 import { savePet, savePetProduct } from 'common/js/catch'
-import { debug } from 'util'
+import EventHub from '@/libs/eventHub'
 
 export default {
   components: {
@@ -27,26 +29,32 @@ export default {
   data () {
     return {
       petsData: [],
-      suppliesData: [],
-      keyWord: null,
-      type: null
+      suppliesData: []
     }
   },
   watch: {
-    keyWord (newVal) {
-      this.reload()
+    '$route' (route) {
+      console.log(route)
+      this.value = route.query.value
+      this.type = route.query.type
+      this.fetchData()
     }
   },
   created () {
-    this.keyWord = this.$route.query.keyWord
-    this.type = this.$route.query.type
-    this.reload()
+    EventHub.$on('search', (type, value) => {
+      this.fetchData(type, value)
+    })
   },
   methods: {
-    reload () {
-      if (this.type === 1) {
+    fetchData (type, value) {
+      if (!value) {
+        return
+      }
+      this.value = value
+      type = Number.parseInt(type)
+      if (type === 1) {
         this.getPetsData()
-      } else if (this.type === 2) {
+      } else if (type === 2) {
         this.getSuppliesData()
       } else {
         this.getPetsData()
@@ -54,12 +62,12 @@ export default {
       }
     },
     getPetsData () {
-      getPetsByKeyWord(this.keyWord).then(res => {
+      getPetsByKeyWord(this.value).then(res => {
         this.petsData = res.data
       })
     },
     getSuppliesData () {
-      getSuppliesByKeyWord(this.keyWord).then(res => {
+      getSuppliesByKeyWord(this.value).then(res => {
         this.suppliesData = res.data
       })
     },
@@ -79,6 +87,9 @@ export default {
         }
       })
     }
+  },
+  destroyed () {
+    EventHub.$off('search')
   }
 }
 </script>

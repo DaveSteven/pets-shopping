@@ -1,5 +1,5 @@
 import * as types from './mutation-types'
-import { saveCartList, saveLoginState, deleteLoginState } from 'common/js/catch'
+import { saveCartList, removeCartList, saveLoginState, deleteLoginState } from 'common/js/catch'
 import { getUserInfo, logout } from '@/api/user'
 import deepClone from 'lodash.clonedeep'
 
@@ -83,6 +83,16 @@ export const removeGoods = ({ commit, state }, { goods }) => {
   }
   commit(types.SET_CART_LIST, cartList)
   saveCartList(cartList)
+}
+
+/**
+ * 清空购物车
+ * @param commit
+ * @param state
+ */
+export const clearCart = ({ commit, state }) => {
+  commit(types.SET_CART_LIST, [])
+  removeCartList()
 }
 
 /**

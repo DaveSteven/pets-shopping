@@ -19,7 +19,7 @@ import Logo from '_c/logo'
 import Search from '_c/search'
 import MiniCart from '_c/mini-cart'
 import UserMenu from '_c/user-menu'
-import { Affix, Message } from 'iview'
+import { Affix } from 'iview'
 
 export default {
   components: {
