@@ -26,6 +26,7 @@ import { getBlogData } from 'common/js/catch'
 import CommentForm from '_c/comment-form'
 import { getCommentList, addComment } from '@/api/blog'
 import { Message } from 'iview'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -49,6 +50,11 @@ export default {
       }
     }
   },
+  computed: {
+    ...mapGetters([
+      'user'
+    ])
+  },
   created () {
     this.blogData = getBlogData(this.$route.params.id)
     this.post_id = this.$route.params.id
@@ -63,12 +69,13 @@ export default {
       })
     },
     postComment () {
-      addComment(this.post_id, this.comment).then(res => {
+      addComment(this.user.id, this.post_id, this.comment).then(res => {
         if (res.code === 200) {
           Message.success('上传成功')
           this.getComments(this.post_id)
         }
       })
+      this.comment = ''
     }
   }
 }

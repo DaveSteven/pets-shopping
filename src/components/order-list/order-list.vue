@@ -1,11 +1,11 @@
 <template>
   <ul class="order-list">
     <li class="order" v-for="(item, index) in data" :key="index">
-      <div class="img">
+      <!-- <div class="img">
         <img v-lazy="item.img" alt="">
-      </div>
+      </div> -->
       <div class="text">
-        <p>{{ item.product_name }}</p>
+        <p class="proName">{{ item.product_name }}</p>
         <p>货到付款 | {{ item.time }}</p>
       </div>
       <div class="opt-box">查看详情</div>

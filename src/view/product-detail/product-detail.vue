@@ -10,7 +10,7 @@
         <p class="f20 mb20" v-show="product.breed">品种：{{ product.breed }}</p>
         <p class="f20 mb20" v-show="product.color">颜色：{{ product.color }}</p>
         <p class="f20 mb20" v-show="product.nature">习性：{{ product.nature }}</p>
-        <p class="f20 mb20" v-show="product.birthday ">年龄：{{ product.birthday | getBirthday }}</p>
+        <p class="f20 mb20" v-show="product.birthday ">生日：{{ product.birthday | getBirthday }}</p>
         <p class="price mb30" >价格：￥{{ product.price }}</p>
         <div class="mb30" v-if="product.type === 1">
           <span>购买数量：</span>

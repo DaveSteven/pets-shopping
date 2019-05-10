@@ -72,8 +72,9 @@ export function getCommentList (postId) {
  * 获取帖子的评论
  * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
  */
-export function addComment (postId, content) {
+export function addComment (userId, postId, content) {
   const data = {
+    'user_id': userId,
     'post_id': postId,
     content
   }
