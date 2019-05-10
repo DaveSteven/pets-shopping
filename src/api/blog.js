@@ -52,3 +52,35 @@ export function addArticle ({ title, img, content }) {
     data
   })
 }
+
+/**
+ * 获取帖子的评论
+ * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
+ */
+export function getCommentList (postId) {
+  const params = {
+    postId
+  }
+  return axios.request({
+    url: '/getCommentsByPostId',
+    params,
+    method: 'get'
+  })
+}
+
+/**
+ * 获取帖子的评论
+ * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
+ */
+export function addComment (postId, content) {
+  debugger
+  const data = {
+    'post_id': postId,
+    content
+  }
+  return axios.request({
+    url: '/addComment',
+    data,
+    method: 'post'
+  })
+}

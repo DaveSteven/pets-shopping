@@ -67,6 +67,21 @@ export function getUserInfo () {
 }
 
 /**
+ * 通过id获取用户信息
+ * @returns {*}
+ */
+export function getUserById (id) {
+  const params = {
+    id
+  }
+  return axios.request({
+    url: '/getUserById',
+    params: params,
+    method: 'get'
+  })
+}
+
+/**
  * 获取用户订单
  * @returns {ClientRequest | ClientHttp2Stream | * | never | AxiosPromise<any>}
  */

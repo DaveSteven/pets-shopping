@@ -21,7 +21,6 @@ import { getArticles } from '@/api/blog'
 // import blogData from '@/mock/blog'
 import sliderData from '@/mock/slider'
 import { savePet, savePetProduct, saveBlogData } from 'common/js/catch'
-import { debug } from 'util'
 
 export default {
   components: {

@@ -9,8 +9,8 @@ class HttpRequest {
   }
   getInsideConfig () {
     const config = {
-      baseURL: this.baseUrl,
-      widthCredentials: true
+      baseURL: this.baseUrl
+      // widthCredentials: true
     }
     return config
   }
