@@ -5,7 +5,7 @@
         <header>
           <NavDrawer class="mr10"></NavDrawer>
           <Logo class="mr30"></Logo>
-          <Search class="mr70"></Search>
+          <Search class="mr70" @search="search"></Search>
           <MiniCart></MiniCart>
           <UserMenu></UserMenu>
         </header>
@@ -38,6 +38,15 @@ export default {
   methods: {
     stateChange (state) {
       this.isFixed = state
+    },
+    search (type, value) {
+      this.$router.push({
+        path: '/searchDetail',
+        query: {
+          type,
+          value
+        }
+      })
     }
   }
 }
