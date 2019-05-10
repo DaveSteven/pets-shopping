@@ -2,7 +2,7 @@ import Mock from 'mockjs'
 const address = Mock.mock({
   'data': [{
     'id': 1,
-    'name': '韩伟',
+    'name': '夕辰踏雪',
     'province': '山东',
     'city': '青岛市',
     'region': '即墨市',
@@ -12,7 +12,7 @@ const address = Mock.mock({
   },
   {
     'id': 2,
-    'name': '韩伟',
+    'name': '阿文文',
     'province': '北京',
     'city': '北京',
     'region': '海淀区',
@@ -22,7 +22,7 @@ const address = Mock.mock({
   },
   {
     'id': 3,
-    'name': '周书梅',
+    'name': '林林',
     'province': '山东',
     'city': '济南',
     'region': '历下区',

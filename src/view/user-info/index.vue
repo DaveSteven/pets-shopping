@@ -49,7 +49,7 @@ export default {
       debugger
       modifyUserInfo(this.user).then(res => {
         Message.success('修改成功')
-        getUser()
+        this.getUser()
       })
     }
   }

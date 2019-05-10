@@ -84,7 +84,7 @@ export default [
     path: '/blog',
     name: 'Blog',
     meta: {
-      title: '博客'
+      title: '论坛'
     },
     component: () => import('@/view/blog/blog')
   },
@@ -92,7 +92,7 @@ export default [
     path: '/blog/:id',
     name: 'BlogDetail',
     meta: {
-      title: '博文',
+      title: '帖子',
       hideInMenu: true
     },
     component: () => import('@/view/blog-detail/blog-detail')

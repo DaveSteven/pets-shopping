@@ -216,7 +216,8 @@ export const getRelativeTime = timeStamp => {
   // 如果IS_EARLY为false则差值取反
   if (!IS_EARLY) diff = -diff
   let resStr = ''
-  const dirStr = IS_EARLY ? '前' : '后'
+  // const dirStr = IS_EARLY ? '前' : '后'
+  // const dirStr = IS_EARLY ? '前' : '前'
   // 少于等于59秒
   if (diff <= 59) resStr = diff + '秒' + dirStr
   // 多于59秒，少于等于59分钟59秒

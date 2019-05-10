@@ -1,6 +1,6 @@
 <template>
   <div class="blog">
-    <TitleBar class="mb5" title="最新博客"></TitleBar>
+    <TitleBar class="mb5" title="最新帖子"></TitleBar>
     <BlogArticles class="mb20" :columns="3" :data="blogData" :lines="4" @select="select"></BlogArticles>
   </div>
 </template>
