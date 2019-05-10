@@ -43,7 +43,7 @@ import TitleBar from '_c/title-bar'
 import AddressList from '_c/address-list'
 import AddressForm from '_c/address-form'
 import Payment from '_c/payment'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import { saveAddress, getAddress } from 'common/js/catch'
 import { Message } from 'iview'
 import { addOrder } from '@/api/order'
@@ -100,19 +100,24 @@ export default {
       const order = {
         data: this.cart.list
       }
-      console.log(order)
       addOrder({
         lists: JSON.stringify(order),
         userId: this.user.id
       }).then(res => {
         Message.success('下单成功！')
-        console.log(res)
+        this.clearCart()
+        this.$router.push({
+          path: '/checkoutResult'
+        })
       })
     },
     _setAddress (data) {
       this.selectedAddress = data
       saveAddress(data)
-    }
+    },
+    ...mapActions({
+      clearCart
+    })
   }
 }
 </script>

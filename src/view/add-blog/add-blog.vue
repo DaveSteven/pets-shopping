@@ -8,6 +8,7 @@
 <script>
 import BlogForm from '_c/blog-form'
 import { addArticle } from '@/api/blog'
+import { Message } from 'iview'
 
 export default {
   components: {
@@ -18,7 +19,12 @@ export default {
       addArticle({
         ...data
       }).then(res => {
-        console.log(res)
+        Message.success('发表成功！')
+        setTimeout(() => {
+          this.$router.push({
+            path: '/user/blog'
+          })
+        }, 500)
       })
     }
   }

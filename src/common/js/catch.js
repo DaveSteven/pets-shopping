@@ -6,10 +6,15 @@ import storage from 'good-storage'
  */
 const CART_KEY = '__cartList__'
 export const saveCartList = (list) => {
-  storage.set(CART_KEY, list)
+  storage.session.set(CART_KEY, list)
 }
+
 export const getCartList = () => {
-  return storage.get(CART_KEY, [])
+  return storage.session.get(CART_KEY, [])
+}
+
+export const removeCartList = () => {
+  return storage.session.remove(CART_KEY)
 }
 
 /**
@@ -78,4 +83,8 @@ export const saveLoginState = (state) => {
 
 export const getLoginState = (state) => {
   return storage.session.get(LOGIN_STATE, false)
+}
+
+export const deleteLoginState = () => {
+  storage.session.remove(LOGIN_STATE)
 }

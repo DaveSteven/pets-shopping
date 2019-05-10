@@ -53,10 +53,10 @@ module.exports = {
     proxy: {
       '': {
         target: 'http://localhost:8080/Shopping',
-        changeOrigin: true
-        // cookiePathRewrite: {
-        //   '/Shopping': '/'
-        // }
+        changeOrigin: true,
+        cookiePathRewrite: {
+          '/Shopping': '/'
+        }
       }
     }
   }

@@ -5,7 +5,7 @@
         <header>
           <NavDrawer class="mr10"></NavDrawer>
           <Logo class="mr30"></Logo>
-          <Search class="mr70"></Search>
+          <Search class="mr70" @search="search"></Search>
           <MiniCart></MiniCart>
           <UserMenu></UserMenu>
         </header>
@@ -19,7 +19,7 @@ import Logo from '_c/logo'
 import Search from '_c/search'
 import MiniCart from '_c/mini-cart'
 import UserMenu from '_c/user-menu'
-import { Affix, Message } from 'iview'
+import { Affix } from 'iview'
 
 export default {
   components: {
@@ -38,6 +38,11 @@ export default {
   methods: {
     stateChange (state) {
       this.isFixed = state
+    },
+    search (type, value) {
+      this.$router.push({
+        path: '/searchDetail'
+      })
     }
   }
 }
